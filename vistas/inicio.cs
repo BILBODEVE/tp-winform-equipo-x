@@ -1,4 +1,5 @@
-﻿using System;
+﻿using negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,17 @@ using System.Windows.Forms;
 
 namespace vistas
 {
-    public partial class Form1 : Form
+    public partial class inicio : Form
     {
-        public Form1()
+        public inicio()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            vistaArticulos verArticulo = new vistaArticulos();
+            verArticulo.ShowDialog();
         }
     }
 }
