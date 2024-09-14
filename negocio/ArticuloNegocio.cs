@@ -20,7 +20,7 @@ namespace negocio
 
             try 
 	        {
-                connection.ConnectionString = "server=DESKTOP-JESCMP2\\SQLEXPRESS;; database=CATALOGO_P3_DB; integrated security=true";
+                connection.ConnectionString = "server=(local)\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true";
                 command.CommandType = System.Data.CommandType.Text;
                 command.CommandText = "SELECT Codigo, Nombre, Descripcion FROM ARTICULOS";
                 command.Connection = connection;
@@ -28,12 +28,12 @@ namespace negocio
                 reader = command.ExecuteReader();
 
                 while (reader.Read()) 
-                {
+                {   
                     Articulo articuloAuxiliar = new Articulo();
                     articuloAuxiliar.Codigo = (string)reader["Codigo"];
                     articuloAuxiliar.Nombre = (string)reader["Nombre"];
                     articuloAuxiliar.Descripcion = (string)reader["Descripcion"];
-
+                    
                     articulos.Add(articuloAuxiliar);
                 }
 
