@@ -13,7 +13,7 @@ namespace dominio
         public string Descripcion { get; set; }
         public string Marca {  get; set; }
         public string Categoria { get; set; }
-        // Falta imagen
+        public string URLImage { get; set; }
         public decimal Precio { get; set; }
     }
 }
