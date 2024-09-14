@@ -45,10 +45,9 @@ namespace vistas
             {
                 pbImagen.Load(url);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 pbImagen.Load("https://placehold.jp/150x150.png");
-                //throw;
             }
         }
     }
