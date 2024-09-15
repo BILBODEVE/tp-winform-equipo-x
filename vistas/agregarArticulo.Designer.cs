@@ -166,6 +166,7 @@
             // 
             // dpdMarca
             // 
+            this.dpdMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.dpdMarca.FormattingEnabled = true;
             this.dpdMarca.Location = new System.Drawing.Point(84, 143);
             this.dpdMarca.Name = "dpdMarca";
@@ -174,6 +175,7 @@
             // 
             // dpdCategoria
             // 
+            this.dpdCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.dpdCategoria.FormattingEnabled = true;
             this.dpdCategoria.Location = new System.Drawing.Point(84, 177);
             this.dpdCategoria.Name = "dpdCategoria";
