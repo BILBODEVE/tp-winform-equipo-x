@@ -26,7 +26,7 @@ namespace negocio
                     articuloAuxiliar.Codigo = (string)consulta.Reader["Codigo"];
                     articuloAuxiliar.Nombre = (string)consulta.Reader["Nombre"];
                     articuloAuxiliar.Descripcion = (string)consulta.Reader["Descripcion"];
-                    articuloAuxiliar.URLImage = (string)consulta.Reader["ImagenUrl"];
+                    articuloAuxiliar.Imagen.ImagenUrl = (string)consulta.Reader["ImagenUrl"];
 
                     articulos.Add(articuloAuxiliar);
                 }
