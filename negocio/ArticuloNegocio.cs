@@ -65,6 +65,17 @@ namespace negocio
                 datos.Cerrar();
             }
         }
+
+        public int ObtenerId(string codigo)
+        {
+            AccesoDatos consulta = new AccesoDatos();
+            try
+            {
+                int id = -1;
+                consulta.SetQuery("SELECT Id FROM ARTICULOS WHERE Codigo = @codigo");
+                consulta.setParametro("@codigo", codigo);
+                consulta.Leer();
+                if (consulta.Reader.Read())
             {
 
                 throw;
