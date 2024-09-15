@@ -24,7 +24,6 @@ namespace negocio
                     categoria.Id = (int)consulta.Reader["Id"];
                     categoria.Descripcion = (string)consulta.Reader["Descripcion"];
                     categorias.Add(categoria);
-
                 }
                 return categorias;
             }
