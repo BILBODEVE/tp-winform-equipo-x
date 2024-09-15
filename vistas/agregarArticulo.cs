@@ -15,8 +15,7 @@ namespace vistas
     public partial class agregarArticulo : Form
     {
         private Articulo articuloAuxiliar;
-        private List<Marca> marcas;
-        private List<Categoria> categorias;
+        
         public agregarArticulo()
         {
             InitializeComponent();
@@ -36,12 +35,10 @@ namespace vistas
             articuloAuxiliar.Codigo = txtCodigo.Text;
             articuloAuxiliar.Nombre = txtNombre.Text;
             articuloAuxiliar.Descripcion = txtDescripcion.Text;
-            articuloAuxiliar.URLImage = txtUrlImagen.Text;
+            articuloAuxiliar.Marca = (Marca)dpdMarca.SelectedItem;
+            articuloAuxiliar.Categoria = (Categoria)dpdCategoria.SelectedItem;
             articuloAuxiliar.Imagen.ImagenUrl = txtUrlImagen.Text;
             articuloAuxiliar.Precio = decimal.Parse(txtPrecio.Text);
-            //nuevoArticulo.Cargar(articuloAuxiliar);
-            MessageBox.Show(articuloAuxiliar.Codigo + "\n" + articuloAuxiliar.Nombre + "\n" + articuloAuxiliar.Descripcion + "\n" + articuloAuxiliar.Marca + "\n" + articuloAuxiliar.Categoria + "\n" + articuloAuxiliar.Precio + "\n" + articuloAuxiliar.URLImage);
-        }
 
             nuevoArticulo.Cargar(articuloAuxiliar);
             MessageBox.Show("Operacion exitosa");
@@ -52,18 +49,20 @@ namespace vistas
         private void agregarArticulo_Load(object sender, EventArgs e)
         {
             MarcaNegocio marca = new MarcaNegocio();
-            this.marcas = marca.cargar();
-            foreach(Marca item in this.marcas)
-            {
-                dpdMarca.Items.Add(item.Descripcion);
-            }
-
             CategoriaNegocio categoria = new CategoriaNegocio();
-            this.categorias = categoria.cargar();
-
-            foreach(Categoria tipo in this.categorias)
+            try
             {
-                dpdCategoria.Items.Add(tipo.Descripcion);
+                dpdMarca.DataSource = marca.cargar();
+                dpdMarca.ValueMember = "Id";
+                dpdMarca.DisplayMember = "Descripcion";
+
+                dpdCategoria.DataSource = categoria.cargar();
+                dpdCategoria.ValueMember = "Id";
+                dpdCategoria.DisplayMember = "Descripcion";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
 
         }
