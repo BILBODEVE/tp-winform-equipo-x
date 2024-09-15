@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using dominio;
+using System.Runtime.Remoting.Messaging;
 
 namespace negocio
 {
@@ -13,37 +14,28 @@ namespace negocio
         public List<Articulo> listar()
         {
             List<Articulo> articulos = new List<Articulo>();
+            AccesoDatos consulta = new AccesoDatos();
+            try
+            {
+                consulta.SetQuery("SELECT A.Codigo, A.Nombre, A.Descripcion, A.Id, I.IdArticulo, I.ImagenUrl FROM ARTICULOS A, IMAGENES I WHERE I.IdArticulo = A.Id");
+                consulta.Leer();
 
-            SqlConnection connection = new SqlConnection();
-            SqlCommand command = new SqlCommand();
-            SqlDataReader reader;
-
-            try 
-	        {
-                connection.ConnectionString = "server=(local)\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true";
-                command.CommandType = System.Data.CommandType.Text;
-                command.CommandText = "SELECT A.Codigo, A.Nombre, A.Descripcion, A.Id, I.IdArticulo, I.ImagenUrl FROM ARTICULOS A, IMAGENES I WHERE I.IdArticulo = A.Id";
-                command.Connection = connection;
-                connection.Open();
-                reader = command.ExecuteReader();
-
-                while (reader.Read()) 
-                {   
+                while (consulta.Reader.Read())
+                {
                     Articulo articuloAuxiliar = new Articulo();
-                    articuloAuxiliar.Codigo = (string)reader["Codigo"];
-                    articuloAuxiliar.Nombre = (string)reader["Nombre"];
-                    articuloAuxiliar.Descripcion = (string)reader["Descripcion"];
-                    articuloAuxiliar.URLImage = (string)reader["ImagenUrl"];
-                    
+                    articuloAuxiliar.Codigo = (string)consulta.Reader["Codigo"];
+                    articuloAuxiliar.Nombre = (string)consulta.Reader["Nombre"];
+                    articuloAuxiliar.Descripcion = (string)consulta.Reader["Descripcion"];
+                    articuloAuxiliar.URLImage = (string)consulta.Reader["ImagenUrl"];
+
                     articulos.Add(articuloAuxiliar);
                 }
-
                 return articulos;
-	        }
-	        catch (Exception ex)
-	        {
-		        throw ex;
-	        }
+            }
+            catch (Exception ex)
+            {
+                throw ex; 
+            }
             finally
             {
                 consulta.Cerrar();
