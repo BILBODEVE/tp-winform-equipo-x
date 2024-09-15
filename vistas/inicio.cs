@@ -23,5 +23,11 @@ namespace vistas
             vistaArticulos verArticulo = new vistaArticulos();
             verArticulo.ShowDialog();
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            agregarArticulo vistaAgregar = new agregarArticulo();
+            vistaAgregar.ShowDialog();
+        }
     }
 }
