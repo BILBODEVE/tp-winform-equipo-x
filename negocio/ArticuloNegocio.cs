@@ -46,7 +46,20 @@ namespace negocio
 	        }
             finally
             {
-                connection.Close();
+                consulta.Cerrar();
+            }
+        }
+        public void Cargar(Articulo nuevoArticulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
 
