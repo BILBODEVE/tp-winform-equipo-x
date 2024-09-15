@@ -69,5 +69,10 @@ namespace negocio
             
             connection.Close();
         }
+
+        public void setParametro(string nombre, object valor)
+        {
+            command.Parameters.AddWithValue(nombre, valor);
+        }
     }
 }
