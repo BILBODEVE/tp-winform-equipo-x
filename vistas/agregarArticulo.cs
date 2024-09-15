@@ -30,16 +30,25 @@ namespace vistas
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             ArticuloNegocio nuevoArticulo = new ArticuloNegocio();
+            ImagenNegocio imagenNegocio = new ImagenNegocio();
             articuloAuxiliar = new Articulo();
+
             articuloAuxiliar.Codigo = txtCodigo.Text;
             articuloAuxiliar.Nombre = txtNombre.Text;
             articuloAuxiliar.Descripcion = txtDescripcion.Text;
             articuloAuxiliar.URLImage = txtUrlImagen.Text;
+            articuloAuxiliar.Imagen.ImagenUrl = txtUrlImagen.Text;
             articuloAuxiliar.Precio = decimal.Parse(txtPrecio.Text);
             //nuevoArticulo.Cargar(articuloAuxiliar);
             MessageBox.Show(articuloAuxiliar.Codigo + "\n" + articuloAuxiliar.Nombre + "\n" + articuloAuxiliar.Descripcion + "\n" + articuloAuxiliar.Marca + "\n" + articuloAuxiliar.Categoria + "\n" + articuloAuxiliar.Precio + "\n" + articuloAuxiliar.URLImage);
         }
 
+            nuevoArticulo.Cargar(articuloAuxiliar);
+            MessageBox.Show("Operacion exitosa");
+
+            int idArticulo = nuevoArticulo.ObtenerId(articuloAuxiliar.Codigo);
+            imagenNegocio.Insertar(idArticulo, articuloAuxiliar.Imagen.ImagenUrl);
+        }
         private void agregarArticulo_Load(object sender, EventArgs e)
         {
             MarcaNegocio marca = new MarcaNegocio();
