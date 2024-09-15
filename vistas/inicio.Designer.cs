@@ -30,10 +30,10 @@
         {
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnVerArticulo = new System.Windows.Forms.Button();
-            this.btnBuscarArticulo = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnBuscarArticulo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -59,15 +59,6 @@
             this.btnVerArticulo.UseVisualStyleBackColor = true;
             this.btnVerArticulo.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnBuscarArticulo
-            // 
-            this.btnBuscarArticulo.Location = new System.Drawing.Point(318, 158);
-            this.btnBuscarArticulo.Name = "btnBuscarArticulo";
-            this.btnBuscarArticulo.Size = new System.Drawing.Size(177, 38);
-            this.btnBuscarArticulo.TabIndex = 2;
-            this.btnBuscarArticulo.Text = "Buscar";
-            this.btnBuscarArticulo.UseVisualStyleBackColor = true;
-            // 
             // btnAgregar
             // 
             this.btnAgregar.Location = new System.Drawing.Point(318, 202);
@@ -76,6 +67,7 @@
             this.btnAgregar.TabIndex = 3;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
@@ -94,6 +86,15 @@
             this.btnEliminar.TabIndex = 5;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnBuscarArticulo
+            // 
+            this.btnBuscarArticulo.Location = new System.Drawing.Point(318, 158);
+            this.btnBuscarArticulo.Name = "btnBuscarArticulo";
+            this.btnBuscarArticulo.Size = new System.Drawing.Size(177, 38);
+            this.btnBuscarArticulo.TabIndex = 2;
+            this.btnBuscarArticulo.Text = "Buscar";
+            this.btnBuscarArticulo.UseVisualStyleBackColor = true;
             // 
             // inicio
             // 
@@ -117,10 +118,10 @@
 
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnVerArticulo;
-        private System.Windows.Forms.Button btnBuscarArticulo;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnBuscarArticulo;
     }
 }
 
