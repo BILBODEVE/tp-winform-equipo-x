@@ -58,5 +58,19 @@ namespace vistas
                 pbImagen.Load("https://placehold.jp/150x150.png");
             }
         }
+
+        public void inyectar()
+        {
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            misArticulos = articuloNegocio.listar();
+            dgvArticulos.DataSource = misArticulos;
+            dgvArticulos.Columns["Descripcion"].Visible = false;
+            dgvArticulos.Columns["Marca"].Visible = false;
+            dgvArticulos.Columns["Categoria"].Visible = false;
+            dgvArticulos.Columns["Precio"].Visible = false;
+            dgvArticulos.Columns["URLImage"].Visible = false;
+            CargarImagen(misArticulos[0].Imagen.ImagenUrl);
+
+        }
     }
 }
