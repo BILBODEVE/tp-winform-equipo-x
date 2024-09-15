@@ -77,8 +77,18 @@ namespace negocio
                 consulta.Leer();
                 if (consulta.Reader.Read())
             {
+                    id = (int)consulta.Reader["Id"];
+                }
 
-                throw;
+                return id;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally 
+            {
+                consulta.Cerrar();
             }
         }
 
