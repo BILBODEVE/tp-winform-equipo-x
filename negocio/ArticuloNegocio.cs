@@ -46,9 +46,25 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
+                datos.SetQuery("INSERT into ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) VALUES (@Codigo, @Nombre, @Descripcion, @IdMarca, @IdCategoria, @Precio)");
+                datos.setParametro("@Codigo", nuevoArticulo.Codigo);
+                datos.setParametro("@Nombre", nuevoArticulo.Nombre);
+                datos.setParametro("@Descripcion", nuevoArticulo.Descripcion);
+                datos.setParametro("@IdMarca", nuevoArticulo.Marca.Id);
+                datos.setParametro("@IdCategoria", nuevoArticulo.Categoria.Id);
+                datos.setParametro("@Precio", nuevoArticulo.Precio);
 
+                datos.Insertar();
             }
-            catch (Exception)
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerrar();
+            }
+        }
             {
 
                 throw;
