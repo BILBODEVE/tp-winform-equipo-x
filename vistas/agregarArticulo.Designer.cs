@@ -38,12 +38,12 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.txtMarca = new System.Windows.Forms.TextBox();
-            this.txtCategoria = new System.Windows.Forms.TextBox();
             this.txtUrlImagen = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.dpdMarca = new System.Windows.Forms.ComboBox();
+            this.dpdCategoria = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblCodigo
@@ -130,20 +130,6 @@
             this.txtDescripcion.Size = new System.Drawing.Size(159, 20);
             this.txtDescripcion.TabIndex = 9;
             // 
-            // txtMarca
-            // 
-            this.txtMarca.Location = new System.Drawing.Point(84, 140);
-            this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(159, 20);
-            this.txtMarca.TabIndex = 10;
-            // 
-            // txtCategoria
-            // 
-            this.txtCategoria.Location = new System.Drawing.Point(84, 177);
-            this.txtCategoria.Name = "txtCategoria";
-            this.txtCategoria.Size = new System.Drawing.Size(159, 20);
-            this.txtCategoria.TabIndex = 11;
-            // 
             // txtUrlImagen
             // 
             this.txtUrlImagen.Location = new System.Drawing.Point(84, 210);
@@ -178,17 +164,33 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // dpdMarca
+            // 
+            this.dpdMarca.FormattingEnabled = true;
+            this.dpdMarca.Location = new System.Drawing.Point(84, 143);
+            this.dpdMarca.Name = "dpdMarca";
+            this.dpdMarca.Size = new System.Drawing.Size(159, 21);
+            this.dpdMarca.TabIndex = 16;
+            // 
+            // dpdCategoria
+            // 
+            this.dpdCategoria.FormattingEnabled = true;
+            this.dpdCategoria.Location = new System.Drawing.Point(84, 177);
+            this.dpdCategoria.Name = "dpdCategoria";
+            this.dpdCategoria.Size = new System.Drawing.Size(159, 21);
+            this.dpdCategoria.TabIndex = 17;
+            // 
             // agregarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(314, 342);
+            this.Controls.Add(this.dpdCategoria);
+            this.Controls.Add(this.dpdMarca);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.txtUrlImagen);
-            this.Controls.Add(this.txtCategoria);
-            this.Controls.Add(this.txtMarca);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.txtCodigo);
@@ -201,6 +203,7 @@
             this.Controls.Add(this.lblCodigo);
             this.Name = "agregarArticulo";
             this.Text = "agregarArticulo";
+            this.Load += new System.EventHandler(this.agregarArticulo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,11 +221,11 @@
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.TextBox txtMarca;
-        private System.Windows.Forms.TextBox txtCategoria;
         private System.Windows.Forms.TextBox txtUrlImagen;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.ComboBox dpdMarca;
+        private System.Windows.Forms.ComboBox dpdCategoria;
     }
 }
