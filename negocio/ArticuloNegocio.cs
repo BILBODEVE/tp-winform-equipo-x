@@ -76,7 +76,7 @@ namespace negocio
                 consulta.setParametro("@codigo", codigo);
                 consulta.Leer();
                 if (consulta.Reader.Read())
-            {
+                {
                     id = (int)consulta.Reader["Id"];
                 }
 

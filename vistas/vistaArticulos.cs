@@ -25,12 +25,12 @@ namespace vistas
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             try
             {
-            misArticulos = articuloNegocio.listar();
-            dgvArticulos.DataSource = misArticulos;
-            dgvArticulos.Columns["Descripcion"].Visible = false;
-            dgvArticulos.Columns["Marca"].Visible = false;
-            dgvArticulos.Columns["Categoria"].Visible = false;
-            dgvArticulos.Columns["Precio"].Visible = false;
+                misArticulos = articuloNegocio.listar();
+                dgvArticulos.DataSource = misArticulos;
+                dgvArticulos.Columns["Descripcion"].Visible = false;
+                dgvArticulos.Columns["Marca"].Visible = false;
+                dgvArticulos.Columns["Categoria"].Visible = false;
+                dgvArticulos.Columns["Precio"].Visible = false;
                 dgvArticulos.Columns["Imagen"].Visible = false;
                 CargarImagen(misArticulos[0].Imagen.ImagenUrl);
             }
