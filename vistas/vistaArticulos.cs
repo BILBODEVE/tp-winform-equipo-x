@@ -23,6 +23,8 @@ namespace vistas
         private void vistaArticulos_Load(object sender, EventArgs e)
         {
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            try
+            {
             misArticulos = articuloNegocio.listar();
             dgvArticulos.DataSource = misArticulos;
             dgvArticulos.Columns["Descripcion"].Visible = false;
@@ -31,6 +33,12 @@ namespace vistas
             dgvArticulos.Columns["Precio"].Visible = false;
             dgvArticulos.Columns["URLImage"].Visible = false;
             CargarImagen(misArticulos[0].URLImage);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+           
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
