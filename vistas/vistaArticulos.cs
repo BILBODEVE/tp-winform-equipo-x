@@ -55,7 +55,7 @@ namespace vistas
             }
             catch (Exception)
             {
-                pbImagen.Load("https://placehold.jp/150x150.png");
+                pbImagen.Load("https://img.icons8.com/?size=100&id=1G2BW7-tQJJJ&format=png&color=000000");
             }
         }
 
