@@ -47,8 +47,7 @@ namespace negocio
                 throw ex;
             }
         }
-
-        public void Insertar()
+        public void EjecutarAccion()
         {
             command.Connection = connection;
             try
@@ -61,7 +60,6 @@ namespace negocio
                 throw ex;
             }
         }
-
         public void Cerrar()
         {
             if(reader != null)
