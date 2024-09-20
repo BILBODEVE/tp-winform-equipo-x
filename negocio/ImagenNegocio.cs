@@ -16,8 +16,6 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                if(idArticulo != -1)
-                {
                     datos.SetQuery("INSERT into IMAGENES(IdArticulo, ImagenUrl)VALUES(@IdArticulo, @ImagenUrl)");
                     datos.setParametro("@IdArticulo", idArticulo);
                     datos.setParametro("@ImagenUrl", url);
