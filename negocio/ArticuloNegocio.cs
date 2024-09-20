@@ -62,6 +62,22 @@ namespace negocio
                 datos.setParametro("@Precio", nuevoArticulo.Precio);
 
                 datos.Insertar();
+        public void Modificar(Articulo articulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetQuery("UPDATE ARTICULOS set Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion , IdMarca = @IdMarca, IdCategoria = @IdCategoria, Precio = @Precio WHERE Id = @Id");
+                datos.setParametro("@Codigo", articulo.Codigo);
+                datos.setParametro("@Nombre", articulo.Nombre);
+                datos.setParametro("@Descripcion", articulo.Descripcion);
+                datos.setParametro("@IdMarca", articulo.Marca.Id);
+                datos.setParametro("@IdCategoria", articulo.Categoria.Id);
+                datos.setParametro("@Precio", articulo.Precio);
+                datos.setParametro("@Id", articulo.Id);
+
+                datos.EjecutarAccion();
             }
             catch (Exception ex)
             {
