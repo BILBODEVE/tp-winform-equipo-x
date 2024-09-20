@@ -67,6 +67,17 @@ namespace negocio
 
                 ImagenNegocio imagenNegocio = new ImagenNegocio();
                 imagenNegocio.Insertar(idArticulo, nuevoArticulo.Imagen.ImagenUrl);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerrar();
+            }
+        }
         public void Modificar(Articulo articulo)
         {
             AccesoDatos datos = new AccesoDatos();
