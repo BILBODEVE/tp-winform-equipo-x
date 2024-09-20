@@ -66,6 +66,26 @@ namespace negocio
             }
         }
 
+        public void Eliminar(Articulo articulo)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+
+            try
+            {
+                accesoDatos.SetQuery("DELETE FROM ARTICULOS WHERE Id = @Id");
+                accesoDatos.setParametro("@Id", articulo.Id);
+                accesoDatos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                accesoDatos.Cerrar();
+            }
+        }
+
         public int ObtenerId(string codigo)
         {
             AccesoDatos consulta = new AccesoDatos();

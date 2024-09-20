@@ -31,8 +31,6 @@ namespace vistas
             InyectarArticulo();
             }
            
-        }
-
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
             Articulo articuloActual = (Articulo)dgvArticulos.CurrentRow.DataBoundItem; // Devuelve el objeto enlazado de la row
@@ -80,6 +78,14 @@ namespace vistas
             }
         }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Articulo articuloActual = new Articulo();
+            articuloActual = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+            confirmarAccion cuadroDialogo = new confirmarAccion(articuloActual);
+            cuadroDialogo.ShowDialog();
+            
         }
     }
 }
