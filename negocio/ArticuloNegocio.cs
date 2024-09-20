@@ -23,9 +23,16 @@ namespace negocio
                 while (consulta.Reader.Read())
                 {
                     Articulo articuloAuxiliar = new Articulo();
+
+                    articuloAuxiliar.Id = (int)consulta.Reader["Id"];
                     articuloAuxiliar.Codigo = (string)consulta.Reader["Codigo"];
                     articuloAuxiliar.Nombre = (string)consulta.Reader["Nombre"];
                     articuloAuxiliar.Descripcion = (string)consulta.Reader["Descripcion"];
+                    articuloAuxiliar.Marca.Id = (int)consulta.Reader["IdMarca"];
+                    articuloAuxiliar.Marca.Descripcion = (string)consulta.Reader["Descripcion"];
+                    articuloAuxiliar.Categoria.Id = (int)consulta.Reader["IdCategoria"];
+                    articuloAuxiliar.Categoria.Descripcion = (string)consulta.Reader["Descripcion"];
+                    articuloAuxiliar.Precio = (decimal)consulta.Reader["Precio"];
                     articuloAuxiliar.Imagen.ImagenUrl = (string)consulta.Reader["ImagenUrl"];
 
                     articulos.Add(articuloAuxiliar);
