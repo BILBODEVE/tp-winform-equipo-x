@@ -21,8 +21,7 @@ namespace negocio
                     datos.SetQuery("INSERT into IMAGENES(IdArticulo, ImagenUrl)VALUES(@IdArticulo, @ImagenUrl)");
                     datos.setParametro("@IdArticulo", idArticulo);
                     datos.setParametro("@ImagenUrl", url);
-                    datos.Insertar();
-                }
+                datos.EjecutarAccion();
             }
             catch (Exception)
             {
