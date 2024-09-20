@@ -22,21 +22,13 @@ namespace vistas
 
         private void vistaArticulos_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-            try
-            {
-                misArticulos = articuloNegocio.listar();
-                dgvArticulos.DataSource = misArticulos;
-                dgvArticulos.Columns["Descripcion"].Visible = false;
-                dgvArticulos.Columns["Marca"].Visible = false;
-                dgvArticulos.Columns["Categoria"].Visible = false;
-                dgvArticulos.Columns["Precio"].Visible = false;
-                dgvArticulos.Columns["Imagen"].Visible = false;
-                CargarImagen(misArticulos[0].Imagen.ImagenUrl);
+            InyectarArticulo();
             }
-            catch (Exception ex)
+        private void btnAgregar_Click(object sender, EventArgs e)
             {
-                MessageBox.Show(ex.ToString());
+            agregarArticulo vistaAgregar = new agregarArticulo();
+            vistaAgregar.ShowDialog();
+            InyectarArticulo();
             }
            
         }
@@ -58,18 +50,35 @@ namespace vistas
                 pbImagen.Load("https://img.icons8.com/?size=100&id=1G2BW7-tQJJJ&format=png&color=000000");
             }
         }
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Articulo articuloActual = new Articulo();
+            articuloActual = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
 
-        public void inyectar()
+            agregarArticulo vistaAgregar = new agregarArticulo(articuloActual);
+            vistaAgregar.ShowDialog();
+            InyectarArticulo();
+        }
+        public void InyectarArticulo()
         {
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            try
+            {
             misArticulos = articuloNegocio.listar();
             dgvArticulos.DataSource = misArticulos;
+                dgvArticulos.Columns["Id"].Visible = false;
             dgvArticulos.Columns["Descripcion"].Visible = false;
             dgvArticulos.Columns["Marca"].Visible = false;
             dgvArticulos.Columns["Categoria"].Visible = false;
             dgvArticulos.Columns["Precio"].Visible = false;
-            dgvArticulos.Columns["URLImage"].Visible = false;
+                dgvArticulos.Columns["Imagen"].Visible = false;
             CargarImagen(misArticulos[0].Imagen.ImagenUrl);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
 
         }
     }
