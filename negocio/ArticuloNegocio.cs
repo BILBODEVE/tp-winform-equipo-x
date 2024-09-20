@@ -61,7 +61,12 @@ namespace negocio
                 datos.setParametro("@IdCategoria", nuevoArticulo.Categoria.Id);
                 datos.setParametro("@Precio", nuevoArticulo.Precio);
 
-                datos.Insertar();
+                datos.EjecutarAccion();
+
+                int idArticulo = ObtenerId(nuevoArticulo.Codigo);
+
+                ImagenNegocio imagenNegocio = new ImagenNegocio();
+                imagenNegocio.Insertar(idArticulo, nuevoArticulo.Imagen.ImagenUrl);
         public void Modificar(Articulo articulo)
         {
             AccesoDatos datos = new AccesoDatos();
