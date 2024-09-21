@@ -14,11 +14,16 @@ namespace vistas
 {
     public partial class agregarArticulo : Form
     {
-        private Articulo articuloAuxiliar;
+        private Articulo articulo = null;
         
         public agregarArticulo()
         {
             InitializeComponent();
+        }
+        public agregarArticulo(Articulo articulo)
+        {
+            InitializeComponent();
+            this.articulo = articulo;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -30,21 +35,26 @@ namespace vistas
         {
             ArticuloNegocio nuevoArticulo = new ArticuloNegocio();
             ImagenNegocio imagenNegocio = new ImagenNegocio();
-            articuloAuxiliar = new Articulo();
 
-            articuloAuxiliar.Codigo = txtCodigo.Text;
-            articuloAuxiliar.Nombre = txtNombre.Text;
-            articuloAuxiliar.Descripcion = txtDescripcion.Text;
-            articuloAuxiliar.Marca = (Marca)dpdMarca.SelectedItem;
-            articuloAuxiliar.Categoria = (Categoria)dpdCategoria.SelectedItem;
-            articuloAuxiliar.Imagen.ImagenUrl = txtUrlImagen.Text;
-            articuloAuxiliar.Precio = decimal.Parse(txtPrecio.Text);
+            if(articulo == null)
+                articulo = new Articulo();
+
+            articulo.Codigo = txtCodigo.Text;
+            articulo.Nombre = txtNombre.Text;
+            articulo.Descripcion = txtDescripcion.Text;
+            articulo.Marca = (Marca)dpdMarca.SelectedItem;
+            articulo.Categoria = (Categoria)dpdCategoria.SelectedItem;
+            articulo.Imagen.ImagenUrl = txtUrlImagen.Text;
+            articulo.Precio = decimal.Parse(txtPrecio.Text);
+
+            if(articulo.Id != 0)
+                nuevoArticulo.Modificar(articulo);
+            else
+                nuevoArticulo.Cargar(articulo);
 
             nuevoArticulo.Cargar(articuloAuxiliar);
             MessageBox.Show("Operacion exitosa");
-
-            int idArticulo = nuevoArticulo.ObtenerId(articuloAuxiliar.Codigo);
-            imagenNegocio.Insertar(idArticulo, articuloAuxiliar.Imagen.ImagenUrl);
+            LimpiarCampos();
         }
         private void agregarArticulo_Load(object sender, EventArgs e)
         {
@@ -59,12 +69,33 @@ namespace vistas
                 dpdCategoria.DataSource = categoria.cargar();
                 dpdCategoria.ValueMember = "Id";
                 dpdCategoria.DisplayMember = "Descripcion";
+
+                if (this.articulo != null)
+                {
+                    txtCodigo.Text = this.articulo.Codigo;
+                    txtNombre.Text = this.articulo.Nombre;
+                    txtDescripcion.Text = this.articulo.Descripcion;
+                    dpdMarca.SelectedValue = this.articulo.Marca.Id;
+                    dpdCategoria.SelectedValue = this.articulo.Categoria.Id;
+                    txtUrlImagen.Text = this.articulo.Imagen.ImagenUrl;
+                    txtPrecio.Text = this.articulo.Precio.ToString();
+                }
+                
+                
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+        }
             
+        private void LimpiarCampos()
+        {
+            txtCodigo.Text = null;
+            txtNombre.Text = null;
+            txtDescripcion.Text = null;
+            txtUrlImagen.Text = null;
+            txtPrecio.Text = null;
         }
     }
 }
