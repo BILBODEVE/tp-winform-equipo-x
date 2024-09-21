@@ -124,7 +124,25 @@ namespace negocio
                 accesoDatos.Cerrar();
             }
         }
-
+        public void EliminarLogico(Articulo articulo)
+        {
+            AccesoDatos dato = new AccesoDatos();
+            try
+            {
+                dato.SetQuery("UPDATE ARTICULOS set Activo = @value WHERE Id = @Id");
+                dato.setParametro("@value", false);
+                dato.setParametro("@Id", articulo.Id);
+                dato.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                dato.Cerrar();
+            }
+        }
         public int ObtenerId(string codigo)
         {
             AccesoDatos consulta = new AccesoDatos();

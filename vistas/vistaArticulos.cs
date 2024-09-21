@@ -87,5 +87,19 @@ namespace vistas
             cuadroDialogo.ShowDialog();
             
         }
+
+        private void btnEliminaciónLógica_Click(object sender, EventArgs e)
+        {
+            DialogResult respuesta = MessageBox.Show("Desea eliminar el artículo?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (respuesta == DialogResult.Yes)
+            {
+                ArticuloNegocio articulo = new ArticuloNegocio();
+                Articulo articuloAuxiliar = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                articulo.EliminarLogico(articuloAuxiliar);
+                InyectarArticulo();
+            }
+
+        }
     }
 }
