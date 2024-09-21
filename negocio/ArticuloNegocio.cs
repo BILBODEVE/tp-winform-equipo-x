@@ -17,7 +17,8 @@ namespace negocio
             AccesoDatos consulta = new AccesoDatos();
             try
             {
-                consulta.SetQuery("SELECT A.Id, I.IdArticulo, A.Codigo, A.Nombre, A.Descripcion, A.IdMarca, A.IdCategoria, A.Precio, I.ImagenUrl, M.Id, M.Descripcion, C.Id, C.Descripcion FROM ARTICULOS A, IMAGENES I, MARCAS M, CATEGORIAS C WHERE I.IdArticulo = A.Id AND A.IdMarca = M.Id AND A.IdCategoria = C.Id");
+                consulta.SetQuery("SELECT A.Id, I.IdArticulo, A.Codigo, A.Nombre, A.Descripcion, A.IdMarca, A.IdCategoria, A.Precio, A.Activo, I.ImagenUrl, M.Id, M.Descripcion, C.Id, C.Descripcion FROM ARTICULOS A, IMAGENES I, MARCAS M, CATEGORIAS C WHERE I.IdArticulo = A.Id AND A.IdMarca = M.Id AND A.IdCategoria = C.Id AND A.Activo = @activo");
+                consulta.setParametro("@activo", true);
                 consulta.Leer();
 
                 while (consulta.Reader.Read())
