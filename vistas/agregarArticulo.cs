@@ -52,7 +52,6 @@ namespace vistas
             else
                 nuevoArticulo.Cargar(articulo);
 
-            nuevoArticulo.Cargar(articuloAuxiliar);
             MessageBox.Show("Operacion exitosa");
             LimpiarCampos();
         }
@@ -62,11 +61,11 @@ namespace vistas
             CategoriaNegocio categoria = new CategoriaNegocio();
             try
             {
-                dpdMarca.DataSource = marca.cargar();
+                dpdMarca.DataSource = marca.Cargar();
                 dpdMarca.ValueMember = "Id";
                 dpdMarca.DisplayMember = "Descripcion";
 
-                dpdCategoria.DataSource = categoria.cargar();
+                dpdCategoria.DataSource = categoria.Cargar();
                 dpdCategoria.ValueMember = "Id";
                 dpdCategoria.DisplayMember = "Descripcion";
 
