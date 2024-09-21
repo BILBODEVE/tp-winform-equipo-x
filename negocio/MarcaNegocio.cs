@@ -36,7 +36,25 @@ namespace negocio
             { 
                 consulta.Cerrar(); 
             }
+        }
 
+        public void Insertar(string descripcionMarca)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.SetQuery("INSERT INTO MARCAS(Descripcion)VALUES(@descripcionMarca)");
+                datos.setParametro("@descripcionMarca", descripcionMarca);
+                datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerrar();
+            }
         }
     }
 }
