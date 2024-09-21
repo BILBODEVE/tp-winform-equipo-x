@@ -11,7 +11,7 @@ namespace negocio
 {
     public class ArticuloNegocio
     {
-        public List<Articulo> listar()
+        public List<Articulo> Listar()
         {
             List<Articulo> articulos = new List<Articulo>();
             AccesoDatos consulta = new AccesoDatos();
