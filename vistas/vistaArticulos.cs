@@ -101,5 +101,11 @@ namespace vistas
             }
 
         }
+
+        private void btnGestionarMarcas_Click(object sender, EventArgs e)
+        {
+            agregarMarca vistaAgregarMarca = new agregarMarca();
+            vistaAgregarMarca.ShowDialog();
+        }
     }
 }
