@@ -82,6 +82,7 @@ namespace negocio
         public void Modificar(Articulo articulo)
         {
             AccesoDatos datos = new AccesoDatos();
+            ImagenNegocio imagen = new ImagenNegocio();
 
             try
             {
@@ -95,6 +96,8 @@ namespace negocio
                 datos.setParametro("@Id", articulo.Id);
 
                 datos.EjecutarAccion();
+
+                imagen.Modificar(articulo.Id, articulo.Imagen.ImagenUrl);
             }
             catch (Exception ex)
             {
@@ -154,9 +157,7 @@ namespace negocio
                 consulta.setParametro("@codigo", codigo);
                 consulta.Leer();
                 if (consulta.Reader.Read())
-                {
                     id = (int)consulta.Reader["Id"];
-                }
 
                 return id;
             }
