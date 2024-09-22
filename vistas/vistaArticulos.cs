@@ -107,5 +107,11 @@ namespace vistas
             agregarMarca vistaAgregarMarca = new agregarMarca();
             vistaAgregarMarca.ShowDialog();
         }
+
+        private void btnGestionarCategorias_Click(object sender, EventArgs e)
+        {
+            agregarCategoria vistaAgregarCategoria = new agregarCategoria();
+            vistaAgregarCategoria.ShowDialog();
+        }
     }
 }
