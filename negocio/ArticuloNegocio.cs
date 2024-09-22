@@ -109,7 +109,7 @@ namespace negocio
             }
         }
 
-        public void Eliminar(Articulo articulo)
+        public void EliminarFisico(Articulo articulo)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
 
