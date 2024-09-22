@@ -30,10 +30,6 @@
         {
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnVerArticulo = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnBuscarArticulo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -51,7 +47,7 @@
             // 
             // btnVerArticulo
             // 
-            this.btnVerArticulo.Location = new System.Drawing.Point(318, 114);
+            this.btnVerArticulo.Location = new System.Drawing.Point(317, 201);
             this.btnVerArticulo.Name = "btnVerArticulo";
             this.btnVerArticulo.Size = new System.Drawing.Size(177, 38);
             this.btnVerArticulo.TabIndex = 1;
@@ -59,55 +55,15 @@
             this.btnVerArticulo.UseVisualStyleBackColor = true;
             this.btnVerArticulo.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Location = new System.Drawing.Point(318, 202);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(177, 38);
-            this.btnAgregar.TabIndex = 3;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.Location = new System.Drawing.Point(318, 246);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(177, 38);
-            this.btnModificar.TabIndex = 4;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(318, 290);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(177, 38);
-            this.btnEliminar.TabIndex = 5;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            // 
-            // btnBuscarArticulo
-            // 
-            this.btnBuscarArticulo.Location = new System.Drawing.Point(318, 158);
-            this.btnBuscarArticulo.Name = "btnBuscarArticulo";
-            this.btnBuscarArticulo.Size = new System.Drawing.Size(177, 38);
-            this.btnBuscarArticulo.TabIndex = 2;
-            this.btnBuscarArticulo.Text = "Buscar";
-            this.btnBuscarArticulo.UseVisualStyleBackColor = true;
-            // 
             // inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.btnBuscarArticulo);
             this.Controls.Add(this.btnVerArticulo);
             this.Controls.Add(this.lblTitulo);
             this.Name = "inicio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -118,10 +74,6 @@
 
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Button btnVerArticulo;
-        private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnBuscarArticulo;
     }
 }
 

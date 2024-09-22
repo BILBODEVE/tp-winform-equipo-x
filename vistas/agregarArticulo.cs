@@ -79,15 +79,13 @@ namespace vistas
                     txtUrlImagen.Text = this.articulo.Imagen.ImagenUrl;
                     txtPrecio.Text = this.articulo.Precio.ToString();
                 }
-                
-                
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-            
+
         private void LimpiarCampos()
         {
             txtCodigo.Text = null;

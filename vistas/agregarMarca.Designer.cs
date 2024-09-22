@@ -54,7 +54,7 @@
             // 
             this.lblNuevaMarca.AutoSize = true;
             this.lblNuevaMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNuevaMarca.Location = new System.Drawing.Point(67, 25);
+            this.lblNuevaMarca.Location = new System.Drawing.Point(63, 24);
             this.lblNuevaMarca.Name = "lblNuevaMarca";
             this.lblNuevaMarca.Size = new System.Drawing.Size(178, 16);
             this.lblNuevaMarca.TabIndex = 2;

@@ -23,14 +23,14 @@ namespace vistas
         private void vistaArticulos_Load(object sender, EventArgs e)
         {
             InyectarArticulo();
-            }
+        }
         private void btnAgregar_Click(object sender, EventArgs e)
-            {
+        {
             agregarArticulo vistaAgregar = new agregarArticulo();
             vistaAgregar.ShowDialog();
             InyectarArticulo();
-            }
-           
+        }
+
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
             Articulo articuloActual = (Articulo)dgvArticulos.CurrentRow.DataBoundItem; // Devuelve el objeto enlazado de la row
@@ -62,15 +62,15 @@ namespace vistas
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             try
             {
-            misArticulos = articuloNegocio.listar();
-            dgvArticulos.DataSource = misArticulos;
+                misArticulos = articuloNegocio.Listar();
+                dgvArticulos.DataSource = misArticulos;
                 dgvArticulos.Columns["Id"].Visible = false;
-            dgvArticulos.Columns["Descripcion"].Visible = false;
-            dgvArticulos.Columns["Marca"].Visible = false;
-            dgvArticulos.Columns["Categoria"].Visible = false;
-            dgvArticulos.Columns["Precio"].Visible = false;
+                dgvArticulos.Columns["Descripcion"].Visible = false;
+                dgvArticulos.Columns["Marca"].Visible = false;
+                dgvArticulos.Columns["Categoria"].Visible = false;
+                dgvArticulos.Columns["Precio"].Visible = false;
                 dgvArticulos.Columns["Imagen"].Visible = false;
-            CargarImagen(misArticulos[0].Imagen.ImagenUrl);
+                CargarImagen(misArticulos[0].Imagen.ImagenUrl);
             }
             catch (Exception ex)
             {

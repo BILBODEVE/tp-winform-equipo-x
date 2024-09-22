@@ -52,6 +52,24 @@
     <Compile Include="agregarArticulo.Designer.cs">
       <DependentUpon>agregarArticulo.cs</DependentUpon>
     </Compile>
+    <Compile Include="agregarCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="agregarCategoria.Designer.cs">
+      <DependentUpon>agregarCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="confirmarAccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="confirmarAccion.Designer.cs">
+      <DependentUpon>confirmarAccion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="agregarMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="agregarMarca.Designer.cs">
+      <DependentUpon>agregarMarca.cs</DependentUpon>
+    </Compile>
     <Compile Include="inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +86,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="agregarArticulo.resx">
       <DependentUpon>agregarArticulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="agregarCategoria.resx">
+      <DependentUpon>agregarCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="agregarMarca.resx">
+      <DependentUpon>agregarMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="confirmarAccion.resx">
+      <DependentUpon>confirmarAccion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="inicio.resx">
       <DependentUpon>inicio.cs</DependentUpon>
