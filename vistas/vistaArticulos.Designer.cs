@@ -121,5 +121,8 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnEliminaciónLógica;
+        private System.Windows.Forms.Button btnGestionarMarcas;
+        private System.Windows.Forms.Button btnGestionarCategorias;
     }
 }
