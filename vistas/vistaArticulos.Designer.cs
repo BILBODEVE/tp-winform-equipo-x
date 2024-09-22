@@ -33,6 +33,8 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnGestionarMarcas = new System.Windows.Forms.Button();
+            this.btnGestionarCategorias = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.SuspendLayout();
@@ -90,6 +92,24 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            this.btnGestionarMarcas.Location = new System.Drawing.Point(486, 182);
+            this.btnGestionarMarcas.Name = "btnGestionarMarcas";
+            this.btnGestionarMarcas.Size = new System.Drawing.Size(117, 33);
+            this.btnGestionarMarcas.TabIndex = 7;
+            this.btnGestionarMarcas.Text = "Gestionar Marcas";
+            this.btnGestionarMarcas.UseVisualStyleBackColor = true;
+            this.btnGestionarMarcas.Click += new System.EventHandler(this.btnGestionarMarcas_Click);
+            // 
+            // btnGestionarCategorias
+            // 
+            this.btnGestionarCategorias.Location = new System.Drawing.Point(489, 221);
+            this.btnGestionarCategorias.Name = "btnGestionarCategorias";
+            this.btnGestionarCategorias.Size = new System.Drawing.Size(114, 44);
+            this.btnGestionarCategorias.TabIndex = 8;
+            this.btnGestionarCategorias.Text = "Gestionar Categorías";
+            this.btnGestionarCategorias.UseVisualStyleBackColor = true;
+            this.btnGestionarCategorias.Click += new System.EventHandler(this.btnGestionarCategorias_Click);
+            // 
             // vistaArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -97,6 +117,9 @@
             this.AutoSize = true;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(900, 550);
+            this.Controls.Add(this.btnGestionarCategorias);
+            this.Controls.Add(this.btnGestionarMarcas);
+            this.Controls.Add(this.btnEliminaciónLógica);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.pbImagen);
