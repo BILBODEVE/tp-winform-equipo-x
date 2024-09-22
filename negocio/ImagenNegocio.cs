@@ -31,5 +31,26 @@ namespace negocio
                 datos.Cerrar();
             }
         }
+
+        public void Modificar(int idArticulo, string url)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetQuery("UPDATE IMAGENES set ImagenUrl = @url WHERE IdArticulo = @Id");
+                datos.setParametro("@url", url);
+                datos.setParametro("Id", idArticulo);
+                datos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerrar();
+            }
+        }
     }
 }
