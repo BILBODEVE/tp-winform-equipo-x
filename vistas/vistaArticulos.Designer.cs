@@ -33,6 +33,7 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEliminaciónLógica = new System.Windows.Forms.Button();
             this.btnGestionarMarcas = new System.Windows.Forms.Button();
             this.btnGestionarCategorias = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
@@ -91,6 +92,18 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnEliminaciónLógica
+            // 
+            this.btnEliminaciónLógica.Location = new System.Drawing.Point(483, 142);
+            this.btnEliminaciónLógica.Name = "btnEliminaciónLógica";
+            this.btnEliminaciónLógica.Size = new System.Drawing.Size(121, 33);
+            this.btnEliminaciónLógica.TabIndex = 6;
+            this.btnEliminaciónLógica.Text = "Eliminación Lógica";
+            this.btnEliminaciónLógica.UseVisualStyleBackColor = true;
+            this.btnEliminaciónLógica.Click += new System.EventHandler(this.btnEliminaciónLógica_Click);
+            // 
+            // btnGestionarMarcas
             // 
             this.btnGestionarMarcas.Location = new System.Drawing.Point(486, 182);
             this.btnGestionarMarcas.Name = "btnGestionarMarcas";
