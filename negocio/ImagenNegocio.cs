@@ -16,9 +16,9 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                    datos.SetQuery("INSERT into IMAGENES(IdArticulo, ImagenUrl)VALUES(@IdArticulo, @ImagenUrl)");
-                    datos.setParametro("@IdArticulo", idArticulo);
-                    datos.setParametro("@ImagenUrl", url);
+                datos.SetQuery("INSERT into IMAGENES(IdArticulo, ImagenUrl)VALUES(@IdArticulo, @ImagenUrl)");
+                datos.setParametro("@IdArticulo", idArticulo);
+                datos.setParametro("@ImagenUrl", url);
                 datos.EjecutarAccion();
             }
             catch (Exception)
@@ -50,6 +50,32 @@ namespace negocio
             finally
             {
                 datos.Cerrar();
+            }
+        }
+        
+        public void CargarImagen(Articulo articulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                
+                datos.SetQuery("SELECT ImagenUrl FROM IMAGENES AS I WHERE I.IdArticulo = @idArticulo");
+                datos.setParametro("@idArticulo", articulo.Id);
+                datos.Leer();
+                while(datos.Reader.Read())
+                {
+                    string url = (string)datos.Reader["ImagenUrl"];
+                    articulo.Imagen.Add(url);
+                }
+            
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.Cerrar(); 
             }
         }
     }
