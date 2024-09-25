@@ -14,6 +14,7 @@ namespace negocio
         public List<Articulo> Listar()
         {
             List<Articulo> articulos = new List<Articulo>();
+            ImagenNegocio imagenNegocio = new ImagenNegocio();
             AccesoDatos consulta = new AccesoDatos();
             try
             {
@@ -34,7 +35,7 @@ namespace negocio
                     articuloAuxiliar.Categoria.Id = (int)consulta.Reader["IdCategoria"];
                     articuloAuxiliar.Categoria.Descripcion = (string)consulta.Reader["Descripcion"];
                     articuloAuxiliar.Precio = (decimal)consulta.Reader["Precio"];
-                    articuloAuxiliar.Imagen.ImagenUrl = (string)consulta.Reader["ImagenUrl"];
+                    imagenNegocio.CargarImagen(articuloAuxiliar);
 
                     articulos.Add(articuloAuxiliar);
                 }
@@ -42,7 +43,7 @@ namespace negocio
             }
             catch (Exception ex)
             {
-                throw ex; 
+                throw ex;
             }
             finally
             {
@@ -67,7 +68,7 @@ namespace negocio
                 int idArticulo = ObtenerId(nuevoArticulo.Codigo);
 
                 ImagenNegocio imagenNegocio = new ImagenNegocio();
-                imagenNegocio.Insertar(idArticulo, nuevoArticulo.Imagen.ImagenUrl);
+                imagenNegocio.Insertar(idArticulo, nuevoArticulo.Imagen[0]);
 
             }
             catch (Exception ex)
@@ -97,7 +98,7 @@ namespace negocio
 
                 datos.EjecutarAccion();
 
-                imagen.Modificar(articulo.Id, articulo.Imagen.ImagenUrl);
+                imagen.Modificar(articulo.Id, articulo.Imagen[0]);
             }
             catch (Exception ex)
             {
@@ -165,7 +166,7 @@ namespace negocio
             {
                 throw ex;
             }
-            finally 
+            finally
             {
                 consulta.Cerrar();
             }
