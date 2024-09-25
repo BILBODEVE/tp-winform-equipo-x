@@ -36,6 +36,8 @@
             this.btnEliminaciónLógica = new System.Windows.Forms.Button();
             this.btnGestionarMarcas = new System.Windows.Forms.Button();
             this.btnGestionarCategorias = new System.Windows.Forms.Button();
+            this.btnSiguienteImagen = new System.Windows.Forms.Button();
+            this.btnRetrocederImagen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.SuspendLayout();
@@ -56,7 +58,7 @@
             // 
             // pbImagen
             // 
-            this.pbImagen.Location = new System.Drawing.Point(23, 283);
+            this.pbImagen.Location = new System.Drawing.Point(72, 283);
             this.pbImagen.Name = "pbImagen";
             this.pbImagen.Size = new System.Drawing.Size(191, 234);
             this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -123,6 +125,25 @@
             this.btnGestionarCategorias.UseVisualStyleBackColor = true;
             this.btnGestionarCategorias.Click += new System.EventHandler(this.btnGestionarCategorias_Click);
             // 
+            // btnSiguienteImagen
+            // 
+            this.btnSiguienteImagen.Location = new System.Drawing.Point(188, 523);
+            this.btnSiguienteImagen.Name = "btnSiguienteImagen";
+            this.btnSiguienteImagen.Size = new System.Drawing.Size(75, 23);
+            this.btnSiguienteImagen.TabIndex = 7;
+            this.btnSiguienteImagen.Text = "Siguiente";
+            this.btnSiguienteImagen.UseVisualStyleBackColor = true;
+            this.btnSiguienteImagen.Click += new System.EventHandler(this.btnSiguienteImagen_Click);
+            // 
+            // btnRetrocederImagen
+            // 
+            this.btnRetrocederImagen.Location = new System.Drawing.Point(72, 523);
+            this.btnRetrocederImagen.Name = "btnRetrocederImagen";
+            this.btnRetrocederImagen.Size = new System.Drawing.Size(75, 23);
+            this.btnRetrocederImagen.TabIndex = 8;
+            this.btnRetrocederImagen.Text = "Atras";
+            this.btnRetrocederImagen.UseVisualStyleBackColor = true;
+            // 
             // vistaArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -130,6 +151,8 @@
             this.AutoSize = true;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(900, 550);
+            this.Controls.Add(this.btnRetrocederImagen);
+            this.Controls.Add(this.btnSiguienteImagen);
             this.Controls.Add(this.btnGestionarCategorias);
             this.Controls.Add(this.btnGestionarMarcas);
             this.Controls.Add(this.btnEliminaciónLógica);
@@ -159,5 +182,7 @@
         private System.Windows.Forms.Button btnEliminaciónLógica;
         private System.Windows.Forms.Button btnGestionarMarcas;
         private System.Windows.Forms.Button btnGestionarCategorias;
+        private System.Windows.Forms.Button btnSiguienteImagen;
+        private System.Windows.Forms.Button btnRetrocederImagen;
     }
 }
