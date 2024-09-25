@@ -44,7 +44,7 @@ namespace vistas
             articulo.Descripcion = txtDescripcion.Text;
             articulo.Marca = (Marca)dpdMarca.SelectedItem;
             articulo.Categoria = (Categoria)dpdCategoria.SelectedItem;
-            articulo.Imagen.ImagenUrl = txtUrlImagen.Text;
+            articulo.Imagen[0] = txtUrlImagen.Text;
             articulo.Precio = decimal.Parse(txtPrecio.Text);
 
             if(articulo.Id != 0)
@@ -76,7 +76,7 @@ namespace vistas
                     txtDescripcion.Text = this.articulo.Descripcion;
                     dpdMarca.SelectedValue = this.articulo.Marca.Id;
                     dpdCategoria.SelectedValue = this.articulo.Categoria.Id;
-                    txtUrlImagen.Text = this.articulo.Imagen.ImagenUrl;
+                    txtUrlImagen.Text = this.articulo.Imagen[0];
                     txtPrecio.Text = this.articulo.Precio.ToString();
                 }
             }
