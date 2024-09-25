@@ -114,42 +114,42 @@
             this.txtCodigo.Location = new System.Drawing.Point(113, 25);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(159, 20);
-            this.txtCodigo.TabIndex = 7;
+            this.txtCodigo.TabIndex = 0;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(113, 61);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(159, 20);
-            this.txtNombre.TabIndex = 8;
+            this.txtNombre.TabIndex = 1;
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(113, 102);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(159, 20);
-            this.txtDescripcion.TabIndex = 9;
+            this.txtDescripcion.TabIndex = 2;
             // 
             // txtUrlImagen
             // 
             this.txtUrlImagen.Location = new System.Drawing.Point(113, 213);
             this.txtUrlImagen.Name = "txtUrlImagen";
             this.txtUrlImagen.Size = new System.Drawing.Size(159, 20);
-            this.txtUrlImagen.TabIndex = 12;
+            this.txtUrlImagen.TabIndex = 5;
             // 
             // txtPrecio
             // 
             this.txtPrecio.Location = new System.Drawing.Point(113, 252);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(159, 20);
-            this.txtPrecio.TabIndex = 13;
+            this.txtPrecio.TabIndex = 6;
             // 
             // btnAgregar
             // 
             this.btnAgregar.Location = new System.Drawing.Point(76, 297);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 14;
+            this.btnAgregar.TabIndex = 7;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -159,7 +159,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(170, 297);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 15;
+            this.btnCancelar.TabIndex = 8;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -171,7 +171,7 @@
             this.dpdMarca.Location = new System.Drawing.Point(113, 146);
             this.dpdMarca.Name = "dpdMarca";
             this.dpdMarca.Size = new System.Drawing.Size(159, 21);
-            this.dpdMarca.TabIndex = 16;
+            this.dpdMarca.TabIndex = 3;
             // 
             // dpdCategoria
             // 
@@ -180,7 +180,7 @@
             this.dpdCategoria.Location = new System.Drawing.Point(113, 180);
             this.dpdCategoria.Name = "dpdCategoria";
             this.dpdCategoria.Size = new System.Drawing.Size(159, 21);
-            this.dpdCategoria.TabIndex = 17;
+            this.dpdCategoria.TabIndex = 4;
             // 
             // agregarArticulo
             // 

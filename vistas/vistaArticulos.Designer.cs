@@ -59,7 +59,7 @@
             this.pbImagen.Location = new System.Drawing.Point(23, 283);
             this.pbImagen.Name = "pbImagen";
             this.pbImagen.Size = new System.Drawing.Size(191, 234);
-            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImagen.TabIndex = 1;
             this.pbImagen.TabStop = false;
             // 
@@ -68,7 +68,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(483, 34);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(124, 30);
-            this.btnAgregar.TabIndex = 3;
+            this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -78,7 +78,7 @@
             this.btnModificar.Location = new System.Drawing.Point(483, 70);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(124, 30);
-            this.btnModificar.TabIndex = 4;
+            this.btnModificar.TabIndex = 2;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
@@ -88,7 +88,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(483, 106);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(124, 30);
-            this.btnEliminar.TabIndex = 5;
+            this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -98,7 +98,7 @@
             this.btnEliminaciónLógica.Location = new System.Drawing.Point(483, 142);
             this.btnEliminaciónLógica.Name = "btnEliminaciónLógica";
             this.btnEliminaciónLógica.Size = new System.Drawing.Size(121, 33);
-            this.btnEliminaciónLógica.TabIndex = 6;
+            this.btnEliminaciónLógica.TabIndex = 4;
             this.btnEliminaciónLógica.Text = "Eliminación Lógica";
             this.btnEliminaciónLógica.UseVisualStyleBackColor = true;
             this.btnEliminaciónLógica.Click += new System.EventHandler(this.btnEliminaciónLógica_Click);
@@ -108,7 +108,7 @@
             this.btnGestionarMarcas.Location = new System.Drawing.Point(486, 182);
             this.btnGestionarMarcas.Name = "btnGestionarMarcas";
             this.btnGestionarMarcas.Size = new System.Drawing.Size(117, 33);
-            this.btnGestionarMarcas.TabIndex = 7;
+            this.btnGestionarMarcas.TabIndex = 5;
             this.btnGestionarMarcas.Text = "Gestionar Marcas";
             this.btnGestionarMarcas.UseVisualStyleBackColor = true;
             this.btnGestionarMarcas.Click += new System.EventHandler(this.btnGestionarMarcas_Click);
@@ -118,7 +118,7 @@
             this.btnGestionarCategorias.Location = new System.Drawing.Point(489, 221);
             this.btnGestionarCategorias.Name = "btnGestionarCategorias";
             this.btnGestionarCategorias.Size = new System.Drawing.Size(114, 44);
-            this.btnGestionarCategorias.TabIndex = 8;
+            this.btnGestionarCategorias.TabIndex = 6;
             this.btnGestionarCategorias.Text = "Gestionar Categorías";
             this.btnGestionarCategorias.UseVisualStyleBackColor = true;
             this.btnGestionarCategorias.Click += new System.EventHandler(this.btnGestionarCategorias_Click);
@@ -146,7 +146,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

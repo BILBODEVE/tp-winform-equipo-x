@@ -69,6 +69,7 @@
             this.Controls.Add(this.btnAgregarCategoria);
             this.Controls.Add(this.txtNuevaCategoria);
             this.Name = "agregarCategoria";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "agregarCategoria";
             this.ResumeLayout(false);
             this.PerformLayout();
