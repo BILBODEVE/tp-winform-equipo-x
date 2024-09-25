@@ -34,7 +34,7 @@ namespace vistas
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
             Articulo articuloActual = (Articulo)dgvArticulos.CurrentRow.DataBoundItem; // Devuelve el objeto enlazado de la row
-            CargarImagen(articuloActual.Imagen.ImagenUrl);
+            CargarImagen(articuloActual.Imagen[0]);
         }
 
         private void CargarImagen(string url)
@@ -69,8 +69,7 @@ namespace vistas
                 dgvArticulos.Columns["Marca"].Visible = false;
                 dgvArticulos.Columns["Categoria"].Visible = false;
                 dgvArticulos.Columns["Precio"].Visible = false;
-                dgvArticulos.Columns["Imagen"].Visible = false;
-                CargarImagen(misArticulos[0].Imagen.ImagenUrl);
+                CargarImagen(misArticulos[0].Imagen[0]);
             }
             catch (Exception ex)
             {
