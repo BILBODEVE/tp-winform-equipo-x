@@ -21,11 +21,28 @@ namespace vistas
         private void btnAgregarCategoria_Click(object sender, EventArgs e)
         {
             CategoriaNegocio nuevaCategoria = new CategoriaNegocio();
+            HelperNegocio validar = new HelperNegocio();
+            string queryValidacion = "SELECT Descripcion FROM CATEGORIAS";
 
             try
             {
-                nuevaCategoria.Insertar(txtNuevaCategoria.Text);
-                MessageBox.Show("La categoría " + txtNuevaCategoria.Text + " se agrego correctamente!");
+                if (validar.ValidarCampo(txtNuevaCategoria.Text))
+                {
+                    if(validar.ValidarNuevoItem(queryValidacion, txtNuevaCategoria.Text)) 
+                    { 
+                        nuevaCategoria.Insertar(txtNuevaCategoria.Text);
+                        MessageBox.Show("La categoría " + txtNuevaCategoria.Text + " se agrego correctamente!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("La categoria que intenta ingresar ya existe en sistema.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese un nombre de categoria porfavor");
+                }
+
             }
             catch (Exception ex)
             {
