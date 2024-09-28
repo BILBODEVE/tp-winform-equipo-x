@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace vistas
 {
-    public partial class agregarMarca : Form
+    public partial class agregarMarca : Form 
     {
         public agregarMarca()
         {
@@ -24,8 +24,25 @@ namespace vistas
 
             try
             {
-                nuevaMarca.Insertar(txtNuevaMarca.Text);
-                MessageBox.Show("La marca " + txtNuevaMarca.Text + " se agrego correctamente!");
+                HelperNegocio validar = new HelperNegocio();
+                string queryValidacion = "SELECT Descripcion FROM MARCAS";
+
+                if(validar.ValidarCampo(txtNuevaMarca.Text))
+                {
+                    if(validar.ValidarNuevoItem(queryValidacion,txtNuevaMarca.Text))
+                    {
+                        nuevaMarca.Insertar(txtNuevaMarca.Text);
+                        MessageBox.Show("La marca " + txtNuevaMarca.Text + " se agrego correctamente!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("La marca que intenta ingresar ya existe en el sistema.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese un nombre de marca porfavor");
+                }
             }
             catch (Exception ex)
             {
