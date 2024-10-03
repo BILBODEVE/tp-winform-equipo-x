@@ -9,6 +9,12 @@ namespace negocio
 {
     public class CategoriaNegocio
     {
+        private AccesoDatos accesoDatos;
+
+        public CategoriaNegocio()
+        {
+            accesoDatos = new AccesoDatos();
+        }
         public List<Categoria> Cargar()
         {
             AccesoDatos consulta = new AccesoDatos();
@@ -16,13 +22,13 @@ namespace negocio
 
             try
             {
-                consulta.SetQuery("SELECT Id, Descripcion FROM CATEGORIAS");
-                consulta.Leer();
-                while (consulta.Reader.Read())
+                accesoDatos.SetQuery("SELECT Id, Descripcion FROM CATEGORIAS");
+                accesoDatos.Leer();
+                while (accesoDatos.Reader.Read())
                 {
                     Categoria categoria = new Categoria();
-                    categoria.Id = (int)consulta.Reader["Id"];
-                    categoria.Descripcion = (string)consulta.Reader["Descripcion"];
+                    categoria.Id = (int)accesoDatos.Reader["Id"];
+                    categoria.Descripcion = (string)accesoDatos.Reader["Descripcion"];
                     categorias.Add(categoria);
                 }
                 return categorias;
@@ -33,7 +39,7 @@ namespace negocio
             }
             finally
             {
-                consulta.Cerrar();
+                accesoDatos.Cerrar();
             }
         }
         public void Insertar(string descripcionCategoria)

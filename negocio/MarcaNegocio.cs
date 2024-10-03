@@ -9,20 +9,25 @@ namespace negocio
 {
     public class MarcaNegocio
     {
+        private AccesoDatos accesoDatos;
+
+        public MarcaNegocio()
+        {
+            accesoDatos = new AccesoDatos();
+        }
         public List<Marca> Cargar()
         {
             List<Marca> marcas = new List<Marca>();
-            AccesoDatos consulta =  new AccesoDatos();
 
             try
             {
-                consulta.SetQuery("SELECT Id, Descripcion FROM MARCAS");
-                consulta.Leer();
-                while(consulta.Reader.Read())
+                accesoDatos.SetQuery("SELECT Id, Descripcion FROM MARCAS");
+                accesoDatos.Leer();
+                while(accesoDatos.Reader.Read())
                 {
                    Marca marca = new Marca();
-                   marca.Id = (int)consulta.Reader["Id"];
-                   marca.Descripcion = (string)consulta.Reader["Descripcion"];
+                    marca.Id = (int)accesoDatos.Reader["Id"];
+                    marca.Descripcion = (string)accesoDatos.Reader["Descripcion"];
                    marcas.Add(marca);
                 }
 
@@ -34,7 +39,7 @@ namespace negocio
             }
             finally 
             { 
-                consulta.Cerrar(); 
+                accesoDatos.Cerrar();
             }
         }
 
