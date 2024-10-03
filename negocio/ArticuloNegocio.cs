@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-using dominio;
 using System.Runtime.Remoting.Messaging;
+using dominio;
 
 namespace negocio
 {
