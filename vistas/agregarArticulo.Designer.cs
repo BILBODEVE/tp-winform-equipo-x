@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(agregarArticulo));
             this.lblCodigo = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
@@ -44,6 +45,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dpdMarca = new System.Windows.Forms.ComboBox();
             this.dpdCategoria = new System.Windows.Forms.ComboBox();
+            this.btnCargarImagen = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCodigo
@@ -182,11 +184,22 @@
             this.dpdCategoria.Size = new System.Drawing.Size(159, 21);
             this.dpdCategoria.TabIndex = 4;
             // 
+            // btnCargarImagen
+            // 
+            this.btnCargarImagen.Image = ((System.Drawing.Image)(resources.GetObject("btnCargarImagen.Image")));
+            this.btnCargarImagen.Location = new System.Drawing.Point(278, 213);
+            this.btnCargarImagen.Name = "btnCargarImagen";
+            this.btnCargarImagen.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnCargarImagen.Size = new System.Drawing.Size(31, 25);
+            this.btnCargarImagen.TabIndex = 10;
+            this.btnCargarImagen.UseVisualStyleBackColor = true;
+            // 
             // agregarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(314, 342);
+            this.ClientSize = new System.Drawing.Size(347, 342);
+            this.Controls.Add(this.btnCargarImagen);
             this.Controls.Add(this.dpdCategoria);
             this.Controls.Add(this.dpdMarca);
             this.Controls.Add(this.btnCancelar);
@@ -230,5 +243,6 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ComboBox dpdMarca;
         private System.Windows.Forms.ComboBox dpdCategoria;
+        private System.Windows.Forms.Button btnCargarImagen;
     }
 }
