@@ -27,7 +27,7 @@ namespace vistas
             CargarComboBox(cbModificarMarca);
             CargarComboBox(cbEliminarMarca);
         }
-
+        private void btnAgregarMarca_Click(object sender, EventArgs e)
         private void button1_Click(object sender, EventArgs e)
         {
             try
