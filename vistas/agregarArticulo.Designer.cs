@@ -1,4 +1,6 @@
-﻿namespace vistas
+﻿using System.Drawing;
+
+namespace vistas
 {
     partial class agregarArticulo
     {

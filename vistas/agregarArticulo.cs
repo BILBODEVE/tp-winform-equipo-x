@@ -64,7 +64,6 @@ namespace vistas
                 dpdMarca.DataSource = marca.Cargar();
                 dpdMarca.ValueMember = "Id";
                 dpdMarca.DisplayMember = "Descripcion";
-
                 dpdCategoria.DataSource = categoria.Cargar();
                 dpdCategoria.ValueMember = "Id";
                 dpdCategoria.DisplayMember = "Descripcion";
