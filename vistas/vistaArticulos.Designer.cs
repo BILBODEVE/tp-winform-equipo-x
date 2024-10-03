@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
             this.pbImagen = new System.Windows.Forms.PictureBox();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -38,6 +39,7 @@
             this.btnGestionarCategorias = new System.Windows.Forms.Button();
             this.btnSiguienteImagen = new System.Windows.Forms.Button();
             this.btnRetrocederImagen = new System.Windows.Forms.Button();
+            this.imgListArticulo = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.SuspendLayout();
@@ -133,7 +135,6 @@
             this.btnSiguienteImagen.TabIndex = 7;
             this.btnSiguienteImagen.Text = "Siguiente";
             this.btnSiguienteImagen.UseVisualStyleBackColor = true;
-            this.btnSiguienteImagen.Click += new System.EventHandler(this.btnSiguienteImagen_Click);
             // 
             // btnRetrocederImagen
             // 
@@ -143,6 +144,12 @@
             this.btnRetrocederImagen.TabIndex = 8;
             this.btnRetrocederImagen.Text = "Atras";
             this.btnRetrocederImagen.UseVisualStyleBackColor = true;
+            // 
+            // imgListArticulo
+            // 
+            this.imgListArticulo.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imgListArticulo.ImageSize = new System.Drawing.Size(256, 256);
+            this.imgListArticulo.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // vistaArticulos
             // 
@@ -184,5 +191,6 @@
         private System.Windows.Forms.Button btnGestionarCategorias;
         private System.Windows.Forms.Button btnSiguienteImagen;
         private System.Windows.Forms.Button btnRetrocederImagen;
+        private System.Windows.Forms.ImageList imgListArticulo;
     }
 }
