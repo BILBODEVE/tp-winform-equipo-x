@@ -17,7 +17,6 @@ namespace negocio
         }
         public List<Categoria> Cargar()
         {
-            AccesoDatos consulta = new AccesoDatos();
             List<Categoria> categorias = new List<Categoria>();
 
             try
@@ -44,12 +43,11 @@ namespace negocio
         }
         public void Insertar(string descripcionCategoria)
         {
-            AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.SetQuery("INSERT INTO CATEGORIAS(Descripcion)VALUES(@descripcionCategoria)");
-                datos.setParametro("@descripcionCategoria", descripcionCategoria);
-                datos.EjecutarAccion();
+                accesoDatos.SetQuery("INSERT INTO CATEGORIAS(Descripcion)VALUES(@descripcionCategoria)");
+                accesoDatos.setParametro("@descripcionCategoria", descripcionCategoria);
+                accesoDatos.EjecutarAccion();
             }
             catch (Exception ex)
             {
@@ -57,8 +55,72 @@ namespace negocio
             }
             finally
             {
-                datos.Cerrar();
+                accesoDatos.Cerrar();
             }
+        }
+
+        public void Modificar(Categoria categoria)
+        {
+            try
+            {
+                accesoDatos.SetQuery("UPDATE CATEGORIAS SET Descripcion = @Descripcion WHERE Id = @Id");
+                accesoDatos.setParametro("@Descripcion", categoria.Descripcion);
+                accesoDatos.setParametro("@Id", categoria.Id);
+                accesoDatos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                accesoDatos.Cerrar();
+            }
+        }
+
+        public void EliminarFisica(Categoria categoria)
+        {
+            try
+            {
+                accesoDatos.SetQuery("DELETE FROM CATEGORIAS WHERE Id = @Id");
+                accesoDatos.setParametro("@Id", categoria.Id);
+                accesoDatos.EjecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                accesoDatos.Cerrar();
+            }
+        }
+
+        public bool ExisteRelacion(Categoria categoria)
+        {
+            try
+            {
+                accesoDatos.SetQuery("SELECT IdCategoria FROM ARTICULOS WHERE IdCategoria IS NOT NULL");
+                accesoDatos.Leer();
+
+                while (accesoDatos.Reader.Read())
+                {
+                    if(categoria.Id == (int)accesoDatos.Reader["IdCategoria"])
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                accesoDatos.Cerrar();
+            }
+
+            return false;
         }
     }
 }
