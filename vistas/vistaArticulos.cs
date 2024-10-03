@@ -112,28 +112,5 @@ namespace vistas
             agregarCategoria vistaAgregarCategoria = new agregarCategoria();
             vistaAgregarCategoria.ShowDialog();
         }
-
-        private void btnSiguienteImagen_Click(object sender, EventArgs e)
-        {
-            Articulo articuloActual = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            int index = 0;
-
-            try
-            {
-                if (articuloActual.Imagen[index++] != null)
-                {
-                    CargarImagen(articuloActual.Imagen[index]);
-                }
-                else
-                {
-                    CargarImagen(articuloActual.Imagen[0]);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        } 
-      
     }
 }
