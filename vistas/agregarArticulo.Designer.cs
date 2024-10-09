@@ -30,6 +30,7 @@ namespace vistas
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(agregarArticulo));
             this.lblCodigo = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -48,6 +49,8 @@ namespace vistas
             this.dpdMarca = new System.Windows.Forms.ComboBox();
             this.dpdCategoria = new System.Windows.Forms.ComboBox();
             this.btnCargarImagen = new System.Windows.Forms.Button();
+            this.errorProviderCodigo = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCodigo)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCodigo
@@ -196,6 +199,10 @@ namespace vistas
             this.btnCargarImagen.TabIndex = 10;
             this.btnCargarImagen.UseVisualStyleBackColor = true;
             // 
+            // errorProviderCodigo
+            // 
+            this.errorProviderCodigo.ContainerControl = this;
+            // 
             // agregarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,6 +229,7 @@ namespace vistas
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Carga artículos";
             this.Load += new System.EventHandler(this.agregarArticulo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCodigo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,5 +254,6 @@ namespace vistas
         private System.Windows.Forms.ComboBox dpdMarca;
         private System.Windows.Forms.ComboBox dpdCategoria;
         private System.Windows.Forms.Button btnCargarImagen;
+        private System.Windows.Forms.ErrorProvider errorProviderCodigo;
     }
 }
