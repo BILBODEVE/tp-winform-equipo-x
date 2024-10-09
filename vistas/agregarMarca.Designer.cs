@@ -56,6 +56,7 @@
             // 
             // cbEliminarMarca
             // 
+            this.cbEliminarMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEliminarMarca.FormattingEnabled = true;
             this.cbEliminarMarca.Location = new System.Drawing.Point(271, 244);
             this.cbEliminarMarca.Name = "cbEliminarMarca";
@@ -111,6 +112,7 @@
             // 
             // cbModificarMarca
             // 
+            this.cbModificarMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbModificarMarca.FormattingEnabled = true;
             this.cbModificarMarca.Location = new System.Drawing.Point(271, 142);
             this.cbModificarMarca.Name = "cbModificarMarca";
@@ -165,6 +167,7 @@
             this.btnAgregarMarca.TabIndex = 18;
             this.btnAgregarMarca.Text = "Agregar";
             this.btnAgregarMarca.UseVisualStyleBackColor = true;
+            this.btnAgregarMarca.Click += new System.EventHandler(this.btnAgregarMarca_Click);
             // 
             // txtNuevaMarca
             // 
