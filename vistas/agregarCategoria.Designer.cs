@@ -103,6 +103,7 @@
             // 
             // cbModificarCategoria
             // 
+            this.cbModificarCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbModificarCategoria.FormattingEnabled = true;
             this.cbModificarCategoria.Location = new System.Drawing.Point(246, 137);
             this.cbModificarCategoria.Name = "cbModificarCategoria";
@@ -158,6 +159,7 @@
             // 
             // cbEliminarCategoria
             // 
+            this.cbEliminarCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEliminarCategoria.FormattingEnabled = true;
             this.cbEliminarCategoria.Location = new System.Drawing.Point(246, 239);
             this.cbEliminarCategoria.Name = "cbEliminarCategoria";
