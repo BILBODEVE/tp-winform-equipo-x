@@ -18,7 +18,7 @@ namespace negocio
             AccesoDatos consulta = new AccesoDatos();
             try
             {
-                consulta.SetQuery("SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, A.Precio, A.IdMarca, A.IdCategoria,M.Id, M.Descripcion,C.Id, C.Descripcion FROM ARTICULOS AS A INNER JOIN MARCAS AS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS AS C ON A.IdCategoria = C.Id WHERE A.Activo = 1");
+                consulta.SetQuery("SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, A.Precio, A.IdMarca, A.IdCategoria,M.Id, M.Descripcion AS MarcaDescripcion,C.Id, C.Descripcion AS CategoriaDescripcion FROM ARTICULOS AS A INNER JOIN MARCAS AS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS AS C ON A.IdCategoria = C.Id WHERE A.Activo = 1");
                 consulta.setParametro("@activo", true);
                 consulta.Leer();
 
@@ -31,9 +31,9 @@ namespace negocio
                     articuloAuxiliar.Nombre = (string)consulta.Reader["Nombre"];
                     articuloAuxiliar.Descripcion = (string)consulta.Reader["Descripcion"];
                     articuloAuxiliar.Marca.Id = (int)consulta.Reader["IdMarca"];
-                    articuloAuxiliar.Marca.Descripcion = (string)consulta.Reader["Descripcion"];
+                    articuloAuxiliar.Marca.Descripcion = (string)consulta.Reader["MarcaDescripcion"];
                     articuloAuxiliar.Categoria.Id = (int)consulta.Reader["IdCategoria"];
-                    articuloAuxiliar.Categoria.Descripcion = (string)consulta.Reader["Descripcion"];
+                    articuloAuxiliar.Categoria.Descripcion = (string)consulta.Reader["CategoriaDescripcion"];
                     articuloAuxiliar.Precio = (decimal)consulta.Reader["Precio"];
                     imagenNegocio.CargarImagen(articuloAuxiliar);
 
