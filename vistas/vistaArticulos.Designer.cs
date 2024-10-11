@@ -40,6 +40,8 @@
             this.btnSiguienteImagen = new System.Windows.Forms.Button();
             this.btnRetrocederImagen = new System.Windows.Forms.Button();
             this.imgListArticulo = new System.Windows.Forms.ImageList(this.components);
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.SuspendLayout();
@@ -49,18 +51,18 @@
             this.dgvArticulos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvArticulos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvArticulos.Location = new System.Drawing.Point(23, 34);
+            this.dgvArticulos.Location = new System.Drawing.Point(26, 68);
             this.dgvArticulos.MultiSelect = false;
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.ReadOnly = true;
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArticulos.Size = new System.Drawing.Size(454, 234);
+            this.dgvArticulos.Size = new System.Drawing.Size(704, 234);
             this.dgvArticulos.TabIndex = 0;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // pbImagen
             // 
-            this.pbImagen.Location = new System.Drawing.Point(72, 283);
+            this.pbImagen.Location = new System.Drawing.Point(26, 318);
             this.pbImagen.Name = "pbImagen";
             this.pbImagen.Size = new System.Drawing.Size(191, 234);
             this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -69,7 +71,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(483, 34);
+            this.btnAgregar.Location = new System.Drawing.Point(747, 68);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(124, 30);
             this.btnAgregar.TabIndex = 1;
@@ -79,7 +81,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(483, 70);
+            this.btnModificar.Location = new System.Drawing.Point(747, 104);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(124, 30);
             this.btnModificar.TabIndex = 2;
@@ -89,7 +91,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(483, 106);
+            this.btnEliminar.Location = new System.Drawing.Point(747, 140);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(124, 30);
             this.btnEliminar.TabIndex = 3;
@@ -99,7 +101,7 @@
             // 
             // btnEliminaciónLógica
             // 
-            this.btnEliminaciónLógica.Location = new System.Drawing.Point(483, 142);
+            this.btnEliminaciónLógica.Location = new System.Drawing.Point(747, 176);
             this.btnEliminaciónLógica.Name = "btnEliminaciónLógica";
             this.btnEliminaciónLógica.Size = new System.Drawing.Size(121, 33);
             this.btnEliminaciónLógica.TabIndex = 4;
@@ -109,7 +111,7 @@
             // 
             // btnGestionarMarcas
             // 
-            this.btnGestionarMarcas.Location = new System.Drawing.Point(486, 182);
+            this.btnGestionarMarcas.Location = new System.Drawing.Point(750, 216);
             this.btnGestionarMarcas.Name = "btnGestionarMarcas";
             this.btnGestionarMarcas.Size = new System.Drawing.Size(117, 33);
             this.btnGestionarMarcas.TabIndex = 5;
@@ -119,7 +121,7 @@
             // 
             // btnGestionarCategorias
             // 
-            this.btnGestionarCategorias.Location = new System.Drawing.Point(489, 221);
+            this.btnGestionarCategorias.Location = new System.Drawing.Point(753, 255);
             this.btnGestionarCategorias.Name = "btnGestionarCategorias";
             this.btnGestionarCategorias.Size = new System.Drawing.Size(114, 44);
             this.btnGestionarCategorias.TabIndex = 6;
@@ -129,7 +131,7 @@
             // 
             // btnSiguienteImagen
             // 
-            this.btnSiguienteImagen.Location = new System.Drawing.Point(188, 523);
+            this.btnSiguienteImagen.Location = new System.Drawing.Point(142, 558);
             this.btnSiguienteImagen.Name = "btnSiguienteImagen";
             this.btnSiguienteImagen.Size = new System.Drawing.Size(75, 23);
             this.btnSiguienteImagen.TabIndex = 7;
@@ -138,7 +140,7 @@
             // 
             // btnRetrocederImagen
             // 
-            this.btnRetrocederImagen.Location = new System.Drawing.Point(72, 523);
+            this.btnRetrocederImagen.Location = new System.Drawing.Point(26, 558);
             this.btnRetrocederImagen.Name = "btnRetrocederImagen";
             this.btnRetrocederImagen.Size = new System.Drawing.Size(75, 23);
             this.btnRetrocederImagen.TabIndex = 8;
@@ -151,13 +153,33 @@
             this.imgListArticulo.ImageSize = new System.Drawing.Size(256, 256);
             this.imgListArticulo.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(26, 30);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(503, 20);
+            this.txtBuscar.TabIndex = 9;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(535, 28);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 10;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // vistaArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(900, 550);
+            this.ClientSize = new System.Drawing.Size(900, 594);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.btnRetrocederImagen);
             this.Controls.Add(this.btnSiguienteImagen);
             this.Controls.Add(this.btnGestionarCategorias);
@@ -176,6 +198,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -192,5 +215,7 @@
         private System.Windows.Forms.Button btnSiguienteImagen;
         private System.Windows.Forms.Button btnRetrocederImagen;
         private System.Windows.Forms.ImageList imgListArticulo;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }
