@@ -33,8 +33,11 @@ namespace vistas
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
-            Articulo articuloActual = (Articulo)dgvArticulos.CurrentRow.DataBoundItem; // Devuelve el objeto enlazado de la row
-            CargarImagen(articuloActual.Imagen[0]);
+            if(dgvArticulos.CurrentRow != null)
+            {
+                Articulo articuloActual = (Articulo)dgvArticulos.CurrentRow.DataBoundItem; // Devuelve el objeto enlazado de la row
+                CargarImagen(articuloActual.Imagen[0]);
+            }
         }
 
         private void CargarImagen(string url)
@@ -64,11 +67,7 @@ namespace vistas
             {
                 misArticulos = articuloNegocio.Listar();
                 dgvArticulos.DataSource = misArticulos;
-                dgvArticulos.Columns["Id"].Visible = false;
-                dgvArticulos.Columns["Descripcion"].Visible = false;
-                dgvArticulos.Columns["Marca"].Visible = false;
-                dgvArticulos.Columns["Categoria"].Visible = false;
-                dgvArticulos.Columns["Precio"].Visible = false;
+                OcultarColumnas();
                 CargarImagen(misArticulos[0].Imagen[0]);
             }
             catch (Exception ex)
@@ -84,7 +83,7 @@ namespace vistas
 
             confirmarAccion cuadroDialogo = new confirmarAccion(articuloActual);
             cuadroDialogo.ShowDialog();
-            
+
         }
 
         private void btnEliminaciónLógica_Click(object sender, EventArgs e)
@@ -112,5 +111,25 @@ namespace vistas
             agregarCategoria vistaAgregarCategoria = new agregarCategoria();
             vistaAgregarCategoria.ShowDialog();
         }
+     
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulo> articuloFiltrado;
+            string nombreBuscado = txtBuscar.Text.ToUpper();
+
+            articuloFiltrado = misArticulos.FindAll(articulo => articulo.Nombre.ToUpper().Contains(nombreBuscado));
+
+            if (articuloFiltrado != null)
+            {
+                dgvArticulos.DataSource = null;
+                dgvArticulos.DataSource = articuloFiltrado;
+            }
+            OcultarColumnas();
+        }
+        private void OcultarColumnas()
+        {
+            dgvArticulos.Columns["Id"].Visible = false;
+        }
+
     }
 }
