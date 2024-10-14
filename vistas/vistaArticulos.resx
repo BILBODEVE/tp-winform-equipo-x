@@ -120,4 +120,18 @@
   <metadata name="imgListArticulo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnLimpiarFiltros.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vwAADr8BOAVTJAAAAQlJREFUOE/V0j9LQlEcxvGrEI3h4BSCQSiBTr0BcXCS/qCQjhG9i5YW516Amw4u
+        vgCH1kBaHFwc3AKXGkSwLMG+j9cjx7wXUwfxgQ/33Avn8ee9x9lljnCH8+ndFnnGBN+I68EmyUAlRhpr
+        J4AmTEkbQXgmhJS7XIhK8rCnuYZvbtB1l/MU8Aa75BUqX4pGPHWXC+NG0IddIvfwjF7iJw6md240nT7z
+        MZ7wBVNUgWc0pn5dV52PGsymDvT3oijjZ3b1zRl6MAV/tZBFDEn45gTvMBuH1tpWx8okUEUORWjjB15m
+        a3nEv3OJEca4QAkqGSCMtaKJrqCDp0IVPWDj3EIHsIFDPdiHOM4v0P9KcW8JuoIAAAAASUVORK5CYII=
+</value>
+  </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>76</value>
+  </metadata>
 </root>
