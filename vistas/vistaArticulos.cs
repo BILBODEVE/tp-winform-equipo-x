@@ -23,6 +23,8 @@ namespace vistas
         private void vistaArticulos_Load(object sender, EventArgs e)
         {
             InyectarArticulo();
+            CargarComboBox();
+            OcultarVistaDetalles();
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -38,18 +40,7 @@ namespace vistas
                 Articulo articuloActual = (Articulo)dgvArticulos.CurrentRow.DataBoundItem; // Devuelve el objeto enlazado de la row
                 CargarImagen(articuloActual.Imagen[0]);
             }
-        }
-
-        private void CargarImagen(string url)
-        {
-            try
-            {
-                pbImagen.Load(url);
-            }
-            catch (Exception)
-            {
-                pbImagen.Load("https://img.icons8.com/?size=100&id=1G2BW7-tQJJJ&format=png&color=000000");
-            }
+            OcultarVistaDetalles();
         }
         private void btnModificar_Click(object sender, EventArgs e)
         {
@@ -65,7 +56,22 @@ namespace vistas
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             try
             {
-                misArticulos = articuloNegocio.Listar();
+                misArticulos = articuloNegocio.Listar(ConfigurationManager.AppSettings["queryListar"]);
+                dgvArticulos.DataSource = misArticulos;
+                OcultarColumnas();
+                helperVistas.CargarImagenDesdeArticulo(pbImagen,misArticulos[0]);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        public void InyectarArticulo(string query)
+        {
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            try
+            {
+                misArticulos = articuloNegocio.Listar(query);
                 dgvArticulos.DataSource = misArticulos;
                 OcultarColumnas();
                 CargarImagen(misArticulos[0].Imagen[0]);
@@ -105,31 +111,140 @@ namespace vistas
             agregarMarca vistaAgregarMarca = new agregarMarca();
             vistaAgregarMarca.ShowDialog();
         }
-
         private void btnGestionarCategorias_Click(object sender, EventArgs e)
         {
             agregarCategoria vistaAgregarCategoria = new agregarCategoria();
             vistaAgregarCategoria.ShowDialog();
         }
-     
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            List<Articulo> articuloFiltrado;
+            List<Articulo> articulosBuscados;
             string nombreBuscado = txtBuscar.Text.ToUpper();
-
-            articuloFiltrado = misArticulos.FindAll(articulo => articulo.Nombre.ToUpper().Contains(nombreBuscado));
-
-            if (articuloFiltrado != null)
+            articulosBuscados = FiltrarPorNombre(nombreBuscado);
+            CargarDataGridView(articulosBuscados);
+        }
+        private void cbFiltroMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (vistaInicializada)
             {
-                dgvArticulos.DataSource = null;
-                dgvArticulos.DataSource = articuloFiltrado;
+                List<Articulo> filtradosPorMarca;
+                string marcaBuscada = cbFiltroMarca.SelectedItem.ToString();
+
+                if (cbFiltroCategoria.SelectedItem.ToString() != "Todos")
+                {
+                    string categoriaBuscada = cbFiltroCategoria.SelectedItem.ToString();
+                    if (marcaBuscada != "Todos")
+                        filtradosPorMarca = FiltrarCriterioDoble(marcaBuscada, categoriaBuscada);
+                    else
+                        filtradosPorMarca = FiltrarPorCategoria(categoriaBuscada);
+                }
+                else
+                {
+                    filtradosPorMarca = FiltrarPorMarca(marcaBuscada);
+                }
+                CargarDataGridView(filtradosPorMarca);
             }
-            OcultarColumnas();
+        }
+        private void cbFiltroCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (vistaInicializada)
+            {
+                List<Articulo> filtradosPorCategoria;
+                string categoriaBuscada = cbFiltroCategoria.SelectedItem.ToString();
+
+                if (cbFiltroMarca.SelectedItem.ToString() != "Todos")
+            {
+                    string marcaBuscada = cbFiltroMarca.SelectedItem.ToString();
+                    if (categoriaBuscada != "Todos")
+                        filtradosPorCategoria = FiltrarCriterioDoble(marcaBuscada, categoriaBuscada);
+                    else
+                        filtradosPorCategoria = FiltrarPorMarca(marcaBuscada);
+            }
+                else
+                {
+                    filtradosPorCategoria = FiltrarPorCategoria(categoriaBuscada);
+                }
+                CargarDataGridView(filtradosPorCategoria);
+            }
+        }
+        private void cbFiltroPrecio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int todos = 0, mayorAMenor = 1, menorAMayor = 2;
+
+            if (cbFiltroPrecio.SelectedIndex == todos)
+                InyectarArticulo();
+
+            if (cbFiltroPrecio.SelectedIndex == mayorAMenor)
+                InyectarArticulo(ConfigurationManager.AppSettings["queryOrdenarMayorAMenor"]);
+
+            if (cbFiltroPrecio.SelectedIndex == menorAMayor)
+                InyectarArticulo(ConfigurationManager.AppSettings["queryOrdenarMenorAMayor"]);
+        }
+        private void CargarComboBox()
+        {
+            MarcaNegocio marca = new MarcaNegocio();
+            CategoriaNegocio categoria = new CategoriaNegocio();
+
+            cbFiltroMarca.DataSource = marca.Cargar();
+            cbFiltroMarca.ValueMember = "Id";
+            cbFiltroMarca.DisplayMember = "Descripcion";
+
+            cbFiltroCategoria.DataSource = categoria.Cargar();
+            cbFiltroCategoria.ValueMember = "Id";
+            cbFiltroCategoria.DisplayMember = "Descripcion";
+
+            cbFiltroPrecio.Items.Add("Todos");
+            cbFiltroPrecio.Items.Add("Mayor a menor");
+            cbFiltroPrecio.Items.Add("Menor a mayor");
+            cbFiltroPrecio.SelectedIndex = 0;
+
+            vistaInicializada = true;
         }
         private void OcultarColumnas()
         {
             dgvArticulos.Columns["Id"].Visible = false;
         }
+        private void btnLimpiarFiltros_Click(object sender, EventArgs e)
+        {
+            txtBuscar.Clear();
+            cbFiltroMarca.SelectedIndex = 0;
+            cbFiltroCategoria.SelectedIndex = 0;
+            cbFiltroPrecio.SelectedIndex = 0;
+        }
+        private List<Articulo> FiltrarPorNombre(string nombreBuscado)
+        {
+            List<Articulo> articulosBuscados;
+            articulosBuscados = misArticulos.FindAll(articulo => articulo.Nombre.ToUpper().Contains(nombreBuscado));
+            return articulosBuscados;
+        }
+        private List<Articulo> FiltrarPorMarca(string criterio)
+        {
+            List<Articulo> articuloFiltrado;
 
+        private List<Articulo> FiltrarPorCategoria(string criterio)
+        {
+            List<Articulo> articuloFiltrado;
+
+            if (criterio != "Todos")
+                articuloFiltrado = misArticulos.FindAll(articulo => articulo.Categoria.Descripcion == criterio);
+            else
+                articuloFiltrado = misArticulos;
+
+            return articuloFiltrado;
+        }
+        private List<Articulo> FiltrarCriterioDoble(string criterioMarca, string criterioCategoria)
+        {
+            List<Articulo> articulosFiltrados;
+
+            articulosFiltrados = misArticulos.FindAll(articulo => (articulo.Marca.Descripcion == criterioMarca) && (articulo.Categoria.Descripcion == criterioCategoria));
+
+            return articulosFiltrados;
+        }
+        private void CargarDataGridView(List<Articulo> articulosFiltrados)
+        {
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = articulosFiltrados;
+            OcultarColumnas();
+        }
     }
 }
