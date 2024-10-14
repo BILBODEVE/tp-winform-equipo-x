@@ -50,7 +50,9 @@ namespace vistas
             this.dpdCategoria = new System.Windows.Forms.ComboBox();
             this.btnCargarImagen = new System.Windows.Forms.Button();
             this.errorProviderCodigo = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pbImagenAgregar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCodigo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagenAgregar)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCodigo
@@ -143,6 +145,8 @@ namespace vistas
             this.txtUrlImagen.Name = "txtUrlImagen";
             this.txtUrlImagen.Size = new System.Drawing.Size(159, 20);
             this.txtUrlImagen.TabIndex = 5;
+            this.txtUrlImagen.TextChanged += new System.EventHandler(this.txtUrlImagen_TextChanged);
+            this.txtUrlImagen.Leave += new System.EventHandler(this.txtUrlImagen_Leave);
             // 
             // txtPrecio
             // 
@@ -203,11 +207,21 @@ namespace vistas
             // 
             this.errorProviderCodigo.ContainerControl = this;
             // 
+            // pbImagenAgregar
+            // 
+            this.pbImagenAgregar.Location = new System.Drawing.Point(332, 38);
+            this.pbImagenAgregar.Name = "pbImagenAgregar";
+            this.pbImagenAgregar.Size = new System.Drawing.Size(191, 234);
+            this.pbImagenAgregar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImagenAgregar.TabIndex = 11;
+            this.pbImagenAgregar.TabStop = false;
+            // 
             // agregarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(347, 342);
+            this.ClientSize = new System.Drawing.Size(570, 342);
+            this.Controls.Add(this.pbImagenAgregar);
             this.Controls.Add(this.btnCargarImagen);
             this.Controls.Add(this.dpdCategoria);
             this.Controls.Add(this.dpdMarca);
@@ -225,11 +239,13 @@ namespace vistas
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblCodigo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "agregarArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Carga artículos";
             this.Load += new System.EventHandler(this.agregarArticulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCodigo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagenAgregar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,5 +271,6 @@ namespace vistas
         private System.Windows.Forms.ComboBox dpdCategoria;
         private System.Windows.Forms.Button btnCargarImagen;
         private System.Windows.Forms.ErrorProvider errorProviderCodigo;
+        private System.Windows.Forms.PictureBox pbImagenAgregar;
     }
 }

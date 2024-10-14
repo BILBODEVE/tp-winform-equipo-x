@@ -195,9 +195,10 @@
             this.Controls.Add(this.lblNuevaMarca);
             this.Controls.Add(this.btnAgregarMarca);
             this.Controls.Add(this.txtNuevaMarca);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "agregarMarca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Cargar Marca";
+            this.Text = "Gestionar Marcas";
             this.Load += new System.EventHandler(this.agregarMarca_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

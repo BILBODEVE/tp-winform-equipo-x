@@ -17,6 +17,7 @@ namespace vistas
     {
         private Articulo articulo = null;
         private HelperNegocio helper;
+        private HelperVistas helperVistas;
 
         public agregarArticulo()
         {
@@ -63,6 +64,7 @@ namespace vistas
         }
         private void agregarArticulo_Load(object sender, EventArgs e)
         {
+            helperVistas = new HelperVistas();
             MarcaNegocio marca = new MarcaNegocio();
             CategoriaNegocio categoria = new CategoriaNegocio();
             try
@@ -81,8 +83,9 @@ namespace vistas
                     txtDescripcion.Text = this.articulo.Descripcion;
                     dpdMarca.SelectedValue = this.articulo.Marca.Id;
                     dpdCategoria.SelectedValue = this.articulo.Categoria.Id;
-                    txtUrlImagen.Text = this.articulo.Imagen[0];
+                    txtUrlImagen.Text = this.articulo.Imagen.Count() > 0 ? this.articulo.Imagen[0] : "";
                     txtPrecio.Text = this.articulo.Precio.ToString();
+                    helperVistas.CargarURLImagen(pbImagenAgregar, txtUrlImagen.Text);
                 }
             }
             catch (Exception ex)
@@ -140,6 +143,16 @@ namespace vistas
                 return false;
 
             return true;
+        }
+
+        private void txtUrlImagen_TextChanged(object sender, EventArgs e)
+        {
+            //helperVistas.CargarURLImagen(pbImagenAgregar, txtUrlImagen.Text);
+        }
+
+        private void txtUrlImagen_Leave(object sender, EventArgs e)
+        {
+            helperVistas.CargarURLImagen(pbImagenAgregar, txtUrlImagen.Text);
         }
     }
 }

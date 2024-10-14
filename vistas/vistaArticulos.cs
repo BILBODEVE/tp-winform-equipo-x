@@ -34,6 +34,7 @@ namespace vistas
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             agregarArticulo vistaAgregar = new agregarArticulo();
+            vistaAgregar.Text = "Cargar artículo";
             vistaAgregar.ShowDialog();
             InyectarArticulo();
         }
@@ -53,6 +54,7 @@ namespace vistas
             articuloActual = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
 
             agregarArticulo vistaAgregar = new agregarArticulo(articuloActual);
+            vistaAgregar.Text = "Modificar artículo";
             vistaAgregar.ShowDialog();
             InyectarArticulo();
         }
@@ -155,13 +157,13 @@ namespace vistas
                 string categoriaBuscada = cbFiltroCategoria.SelectedItem.ToString();
 
                 if (cbFiltroMarca.SelectedItem.ToString() != "Todos")
-            {
+                {
                     string marcaBuscada = cbFiltroMarca.SelectedItem.ToString();
                     if (categoriaBuscada != "Todos")
                         filtradosPorCategoria = FiltrarCriterioDoble(marcaBuscada, categoriaBuscada);
                     else
                         filtradosPorCategoria = FiltrarPorMarca(marcaBuscada);
-            }
+                }
                 else
                 {
                     filtradosPorCategoria = FiltrarPorCategoria(categoriaBuscada);
@@ -276,6 +278,29 @@ namespace vistas
                 indexImagen = (indexImagen - 1 + cantidadImagenes) % cantidadImagenes;
                 helperVistas.CargarImagenDesdeArticulo(pbImagen, articuloActual, indexImagen);
             }   
+        }
+        private void btnVerDetalle_Click(object sender, EventArgs e)
+        {
+            Articulo articulo = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+            if(!string.IsNullOrEmpty(articulo.Marca.Descripcion))
+                lblDetalleMarca.Text = "Marca: " + articulo.Marca.Descripcion;
+            else
+                lblDetalleMarca.Text = "Marca: Sin Marca";
+
+            if (!string.IsNullOrEmpty(articulo.Categoria.Descripcion))
+                lblDetalleCategoria.Text = "Categoría: " + articulo.Categoria.Descripcion;
+            else
+                lblDetalleCategoria.Text = "Categoría: Sin Categoría";
+
+            lblDetallePrecio.Text = articulo.Precio != 0  ?  "Precio: $" + articulo.Precio : "Precio: $0";
+            OcultarVistaDetalles(true);
+        }
+        private void OcultarVistaDetalles(bool oculto = false)
+        {
+            lblDetalleMarca.Visible = oculto;
+            lblDetalleCategoria.Visible = oculto;
+            lblDetallePrecio.Visible = oculto;
         }
     }
 }

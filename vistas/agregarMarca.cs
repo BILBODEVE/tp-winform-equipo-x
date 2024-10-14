@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace vistas
 {
-    public partial class agregarMarca : Form 
+    public partial class agregarMarca : Form
     {
         private MarcaNegocio marcaNegocio;
         private HelperNegocio helper;
@@ -34,9 +34,9 @@ namespace vistas
                 HelperNegocio validar = new HelperNegocio();
                 string queryValidacion = "SELECT Descripcion FROM MARCAS";
 
-                if(validar.ValidarCampo(txtNuevaMarca.Text))
+                if (!string.IsNullOrEmpty(txtNuevaMarca.Text))
                 {
-                    if(validar.ValidarNuevoItem(queryValidacion,txtNuevaMarca.Text))
+                    if (validar.ValidarNuevoItem(queryValidacion, txtNuevaMarca.Text))
                     {
                         marcaNegocio.Insertar(txtNuevaMarca.Text);
                         MessageBox.Show("La marca " + txtNuevaMarca.Text + " se agrego correctamente!");
@@ -70,20 +70,19 @@ namespace vistas
                 throw ex;
             }
         }
-
         private void btnModificarMarca_Click(object sender, EventArgs e)
         {
             Marca marca = (Marca)cbModificarMarca.SelectedItem;
             marca.Descripcion = txtModificarMarca.Text;
-            
+
             try
             {
-                if (helper.ValidarCampo(marca.Descripcion))
+                if (!string.IsNullOrEmpty(marca.Descripcion))
                 {
                     if (!marcaNegocio.ExisteRelacion(marca.Id))
                     {
                         marcaNegocio.Modificar(marca);
-                        MessageBox.Show("La marca se actualizo correctamente.");    
+                        MessageBox.Show("La marca se actualizo correctamente.");
                     }
                     else
                     {
@@ -102,7 +101,6 @@ namespace vistas
                 throw ex;
             }
         }
-
         private void btnEliminarMarca_Click(object sender, EventArgs e)
         {
             Marca marca = (Marca)cbEliminarMarca.SelectedItem;

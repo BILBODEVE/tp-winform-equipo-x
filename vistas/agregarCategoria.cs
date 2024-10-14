@@ -36,10 +36,10 @@ namespace vistas
 
             try
             {
-                if (validar.ValidarCampo(txtNuevaCategoria.Text))
+                if (!string.IsNullOrEmpty(txtNuevaCategoria.Text))
                 {
-                    if(validar.ValidarNuevoItem(queryValidacion, txtNuevaCategoria.Text)) 
-                    { 
+                    if (validar.ValidarNuevoItem(queryValidacion, txtNuevaCategoria.Text))
+                    {
                         categoriaNegocio.Insertar(txtNuevaCategoria.Text);
                         MessageBox.Show("La categoría " + txtNuevaCategoria.Text + " se agrego correctamente!");
                     }
@@ -52,7 +52,6 @@ namespace vistas
                 {
                     MessageBox.Show("Ingrese un nombre de categoria porfavor");
                 }
-
             }
             catch (Exception ex)
             {
@@ -72,7 +71,6 @@ namespace vistas
                 throw ex;
             }
         }
-
         private void btnModificarCategoria_Click(object sender, EventArgs e)
         {
             Categoria categoria = (Categoria)cbModificarCategoria.SelectedItem;
@@ -80,7 +78,7 @@ namespace vistas
 
             try
             {
-                if(helper.ValidarCampo(categoria.Descripcion))
+                if (!string.IsNullOrEmpty(categoria.Descripcion))
                 {
                     if (!categoriaNegocio.ExisteRelacion(categoria))
                     {
@@ -89,9 +87,7 @@ namespace vistas
 
                     }
                     else
-                    {
                         MessageBox.Show("No es posible modificar la categoría. Existen registros asociados.");
-                    }
                     return;
                 }
                 else
@@ -99,15 +95,12 @@ namespace vistas
                     MessageBox.Show("Ingrese un nombre de categoria porfavor");
                     return;
                 }
-
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-
         }
-
         private void btnEliminarCategoria_Click(object sender, EventArgs e)
         {
             Categoria categoria = (Categoria)cbEliminarCategoria.SelectedItem;
@@ -115,7 +108,9 @@ namespace vistas
             try
             {
                 if (!categoriaNegocio.ExisteRelacion(categoria))
+                {
                     categoriaNegocio.EliminarFisica(categoria);
+                }
                 else
                 {
                     MessageBox.Show("No es posible eliminar la categoria. Existen registros asociados.");

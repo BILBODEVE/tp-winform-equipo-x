@@ -6,19 +6,20 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Runtime.Remoting.Messaging;
 using dominio;
+using System.Configuration;
 
 namespace negocio
 {
     public class ArticuloNegocio
     {
-        public List<Articulo> Listar()
+        public List<Articulo> Listar(string query)
         {
             List<Articulo> articulos = new List<Articulo>();
             ImagenNegocio imagenNegocio = new ImagenNegocio();
             AccesoDatos consulta = new AccesoDatos();
             try
             {
-                consulta.SetQuery("SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, A.Precio, A.IdMarca, A.IdCategoria,M.Id, M.Descripcion AS MarcaDescripcion,C.Id, C.Descripcion AS CategoriaDescripcion FROM ARTICULOS AS A INNER JOIN MARCAS AS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS AS C ON A.IdCategoria = C.Id WHERE A.Activo = 1");
+                consulta.SetQuery(query);
                 consulta.setParametro("@activo", true);
                 consulta.Leer();
 
@@ -55,7 +56,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.SetQuery("INSERT into ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) VALUES (@Codigo, @Nombre, @Descripcion, @IdMarca, @IdCategoria, @Precio)");
+                datos.SetQuery(ConfigurationManager.AppSettings["queryInsertarArticulo"]);
                 datos.setParametro("@Codigo", nuevoArticulo.Codigo);
                 datos.setParametro("@Nombre", nuevoArticulo.Nombre);
                 datos.setParametro("@Descripcion", nuevoArticulo.Descripcion);
@@ -87,7 +88,7 @@ namespace negocio
 
             try
             {
-                datos.SetQuery("UPDATE ARTICULOS set Codigo = @Codigo, Nombre = @Nombre, Descripcion = @Descripcion , IdMarca = @IdMarca, IdCategoria = @IdCategoria, Precio = @Precio WHERE Id = @Id");
+                datos.SetQuery(ConfigurationManager.AppSettings["queryUpdateArticulo"]);
                 datos.setParametro("@Codigo", articulo.Codigo);
                 datos.setParametro("@Nombre", articulo.Nombre);
                 datos.setParametro("@Descripcion", articulo.Descripcion);

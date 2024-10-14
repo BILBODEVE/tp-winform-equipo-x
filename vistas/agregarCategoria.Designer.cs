@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblNuevaCategoria = new System.Windows.Forms.Label();
             this.btnAgregarCategoria = new System.Windows.Forms.Button();
             this.txtNuevaCategoria = new System.Windows.Forms.TextBox();
@@ -42,6 +43,10 @@
             this.lblEliminarCategoria = new System.Windows.Forms.Label();
             this.cbEliminarCategoria = new System.Windows.Forms.ComboBox();
             this.btnEliminarCategoria = new System.Windows.Forms.Button();
+            this.errorProviderTxtAgregar = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderTxtModificar = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderTxtAgregar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderTxtModificar)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNuevaCategoria
@@ -176,6 +181,14 @@
             this.btnEliminarCategoria.UseVisualStyleBackColor = true;
             this.btnEliminarCategoria.Click += new System.EventHandler(this.btnEliminarCategoria_Click);
             // 
+            // errorProviderTxtAgregar
+            // 
+            this.errorProviderTxtAgregar.ContainerControl = this;
+            // 
+            // errorProviderTxtModificar
+            // 
+            this.errorProviderTxtModificar.ContainerControl = this;
+            // 
             // agregarCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,10 +208,13 @@
             this.Controls.Add(this.lblNuevaCategoria);
             this.Controls.Add(this.btnAgregarCategoria);
             this.Controls.Add(this.txtNuevaCategoria);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "agregarCategoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "agregarCategoria";
+            this.Text = "Gestionar Categorías";
             this.Load += new System.EventHandler(this.agregarCategoria_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderTxtAgregar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderTxtModificar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,5 +236,7 @@
         private System.Windows.Forms.Label lblEliminarCategoria;
         private System.Windows.Forms.ComboBox cbEliminarCategoria;
         private System.Windows.Forms.Button btnEliminarCategoria;
+        private System.Windows.Forms.ErrorProvider errorProviderTxtAgregar;
+        private System.Windows.Forms.ErrorProvider errorProviderTxtModificar;
     }
 }

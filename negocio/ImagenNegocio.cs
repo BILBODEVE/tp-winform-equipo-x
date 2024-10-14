@@ -59,7 +59,7 @@ namespace negocio
             try
             {
                 
-                datos.SetQuery("SELECT ImagenUrl FROM IMAGENES AS I WHERE I.IdArticulo = @idArticulo");
+                datos.SetQuery("SELECT DISTINCT ImagenUrl FROM IMAGENES AS I INNER JOIN ARTICULOS AS A ON I.IdArticulo = @idArticulo");
                 datos.setParametro("@idArticulo", articulo.Id);
                 datos.Leer();
                 while(datos.Reader.Read())
@@ -67,7 +67,6 @@ namespace negocio
                     string url = (string)datos.Reader["ImagenUrl"];
                     articulo.Imagen.Add(url);
                 }
-            
             }
             catch (Exception ex)
             {

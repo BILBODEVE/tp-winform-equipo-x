@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -70,6 +71,7 @@
     <Compile Include="agregarMarca.Designer.cs">
       <DependentUpon>agregarMarca.cs</DependentUpon>
     </Compile>
+    <Compile Include="HelperVistas.cs" />
     <Compile Include="inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +135,9 @@
       <Project>{bce9f615-e8ec-40c8-9387-0380df8477b3}</Project>
       <Name>negocio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,6 +8,12 @@ namespace dominio
 {
     public class Marca
     {
+        public Marca() { }
+
+        public Marca(string descripcion) 
+        {
+            this.Descripcion = descripcion;
+        }
         public int Id { get; set; }
         public string Descripcion { get; set; }
         public override string ToString()
