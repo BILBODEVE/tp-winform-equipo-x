@@ -116,7 +116,7 @@
             // 
             this.btnEliminaciónLógica.Location = new System.Drawing.Point(802, 205);
             this.btnEliminaciónLógica.Name = "btnEliminaciónLógica";
-            this.btnEliminaciónLógica.Size = new System.Drawing.Size(121, 33);
+            this.btnEliminaciónLógica.Size = new System.Drawing.Size(124, 30);
             this.btnEliminaciónLógica.TabIndex = 4;
             this.btnEliminaciónLógica.Text = "Eliminación Lógica";
             this.btnEliminaciónLógica.UseVisualStyleBackColor = true;
@@ -124,9 +124,9 @@
             // 
             // btnGestionarMarcas
             // 
-            this.btnGestionarMarcas.Location = new System.Drawing.Point(805, 245);
+            this.btnGestionarMarcas.Location = new System.Drawing.Point(802, 245);
             this.btnGestionarMarcas.Name = "btnGestionarMarcas";
-            this.btnGestionarMarcas.Size = new System.Drawing.Size(117, 33);
+            this.btnGestionarMarcas.Size = new System.Drawing.Size(124, 30);
             this.btnGestionarMarcas.TabIndex = 5;
             this.btnGestionarMarcas.Text = "Gestionar Marcas";
             this.btnGestionarMarcas.UseVisualStyleBackColor = true;
@@ -134,9 +134,9 @@
             // 
             // btnGestionarCategorias
             // 
-            this.btnGestionarCategorias.Location = new System.Drawing.Point(808, 284);
+            this.btnGestionarCategorias.Location = new System.Drawing.Point(802, 284);
             this.btnGestionarCategorias.Name = "btnGestionarCategorias";
-            this.btnGestionarCategorias.Size = new System.Drawing.Size(114, 44);
+            this.btnGestionarCategorias.Size = new System.Drawing.Size(124, 30);
             this.btnGestionarCategorias.TabIndex = 6;
             this.btnGestionarCategorias.Text = "Gestionar Categorías";
             this.btnGestionarCategorias.UseVisualStyleBackColor = true;
