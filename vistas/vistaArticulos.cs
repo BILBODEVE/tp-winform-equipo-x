@@ -134,10 +134,10 @@ namespace vistas
                 List<Articulo> filtradosPorMarca;
                 string marcaBuscada = cbFiltroMarca.SelectedItem.ToString();
 
-                if (cbFiltroCategoria.SelectedItem.ToString() != "Todos")
+                if (cbFiltroCategoria.SelectedItem.ToString() != "Seleccionar")
                 {
                     string categoriaBuscada = cbFiltroCategoria.SelectedItem.ToString();
-                    if (marcaBuscada != "Todos")
+                    if (marcaBuscada != "Seleccionar")
                         filtradosPorMarca = FiltrarCriterioDoble(marcaBuscada, categoriaBuscada);
                     else
                         filtradosPorMarca = FiltrarPorCategoria(categoriaBuscada);
@@ -156,10 +156,10 @@ namespace vistas
                 List<Articulo> filtradosPorCategoria;
                 string categoriaBuscada = cbFiltroCategoria.SelectedItem.ToString();
 
-                if (cbFiltroMarca.SelectedItem.ToString() != "Todos")
+                if (cbFiltroMarca.SelectedItem.ToString() != "Seleccionar")
                 {
                     string marcaBuscada = cbFiltroMarca.SelectedItem.ToString();
-                    if (categoriaBuscada != "Todos")
+                    if (categoriaBuscada != "Seleccionar")
                         filtradosPorCategoria = FiltrarCriterioDoble(marcaBuscada, categoriaBuscada);
                     else
                         filtradosPorCategoria = FiltrarPorMarca(marcaBuscada);
@@ -197,7 +197,7 @@ namespace vistas
             cbFiltroCategoria.ValueMember = "Id";
             cbFiltroCategoria.DisplayMember = "Descripcion";
 
-            cbFiltroPrecio.Items.Add("Todos");
+            cbFiltroPrecio.Items.Add("Seleccionar");
             cbFiltroPrecio.Items.Add("Mayor a menor");
             cbFiltroPrecio.Items.Add("Menor a mayor");
             cbFiltroPrecio.SelectedIndex = 0;
@@ -207,6 +207,9 @@ namespace vistas
         private void OcultarColumnas()
         {
             dgvArticulos.Columns["Id"].Visible = false;
+            dgvArticulos.Columns["Marca"].Visible = false;
+            dgvArticulos.Columns["Categoria"].Visible = false;
+            dgvArticulos.Columns["Precio"].Visible = false;
         }
         private void btnLimpiarFiltros_Click(object sender, EventArgs e)
         {
@@ -225,7 +228,7 @@ namespace vistas
         {
             List<Articulo> articuloFiltrado;
 
-            if (criterio != "Todos")
+            if (criterio != "Seleccionar")
                 articuloFiltrado = misArticulos.FindAll(articulo => articulo.Marca.Descripcion == criterio);
             else
                 articuloFiltrado = misArticulos;
@@ -236,7 +239,7 @@ namespace vistas
         {
             List<Articulo> articuloFiltrado;
 
-            if (criterio != "Todos")
+            if (criterio != "Seleccionar")
                 articuloFiltrado = misArticulos.FindAll(articulo => articulo.Categoria.Descripcion == criterio);
             else
                 articuloFiltrado = misArticulos;
