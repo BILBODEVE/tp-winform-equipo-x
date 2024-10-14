@@ -31,7 +31,6 @@ namespace vistas
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(agregarArticulo));
             this.lblCodigo = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
@@ -48,7 +47,6 @@ namespace vistas
             this.btnCancelar = new System.Windows.Forms.Button();
             this.dpdMarca = new System.Windows.Forms.ComboBox();
             this.dpdCategoria = new System.Windows.Forms.ComboBox();
-            this.btnCargarImagen = new System.Windows.Forms.Button();
             this.errorProviderCodigo = new System.Windows.Forms.ErrorProvider(this.components);
             this.pbImagenAgregar = new System.Windows.Forms.PictureBox();
             this.errorProviderComboBox = new System.Windows.Forms.ErrorProvider(this.components);
@@ -194,16 +192,6 @@ namespace vistas
             this.dpdCategoria.Size = new System.Drawing.Size(159, 21);
             this.dpdCategoria.TabIndex = 4;
             // 
-            // btnCargarImagen
-            // 
-            this.btnCargarImagen.Image = ((System.Drawing.Image)(resources.GetObject("btnCargarImagen.Image")));
-            this.btnCargarImagen.Location = new System.Drawing.Point(278, 213);
-            this.btnCargarImagen.Name = "btnCargarImagen";
-            this.btnCargarImagen.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnCargarImagen.Size = new System.Drawing.Size(31, 25);
-            this.btnCargarImagen.TabIndex = 10;
-            this.btnCargarImagen.UseVisualStyleBackColor = true;
-            // 
             // errorProviderCodigo
             // 
             this.errorProviderCodigo.ContainerControl = this;
@@ -227,7 +215,6 @@ namespace vistas
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(570, 342);
             this.Controls.Add(this.pbImagenAgregar);
-            this.Controls.Add(this.btnCargarImagen);
             this.Controls.Add(this.dpdCategoria);
             this.Controls.Add(this.dpdMarca);
             this.Controls.Add(this.btnCancelar);
@@ -275,7 +262,6 @@ namespace vistas
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ComboBox dpdMarca;
         private System.Windows.Forms.ComboBox dpdCategoria;
-        private System.Windows.Forms.Button btnCargarImagen;
         private System.Windows.Forms.ErrorProvider errorProviderCodigo;
         private System.Windows.Forms.PictureBox pbImagenAgregar;
         private System.Windows.Forms.ErrorProvider errorProviderComboBox;
