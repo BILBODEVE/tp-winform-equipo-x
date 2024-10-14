@@ -15,9 +15,13 @@ namespace vistas
     public partial class vistaArticulos : Form
     {
         private List<Articulo> misArticulos;
+        private HelperVistas helperVistas;
+        private bool vistaInicializada = false;
+        static int indexImagen = 0;
         public vistaArticulos()
         {
             InitializeComponent();
+            helperVistas = new HelperVistas();
         }
 
         private void vistaArticulos_Load(object sender, EventArgs e)
@@ -35,10 +39,10 @@ namespace vistas
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
-            if(dgvArticulos.CurrentRow != null)
+            if (dgvArticulos.CurrentRow != null)
             {
                 Articulo articuloActual = (Articulo)dgvArticulos.CurrentRow.DataBoundItem; // Devuelve el objeto enlazado de la row
-                CargarImagen(articuloActual.Imagen[0]);
+                helperVistas.CargarImagenDesdeArticulo(pbImagen, articuloActual);
             }
             OcultarVistaDetalles();
         }
@@ -74,7 +78,7 @@ namespace vistas
                 misArticulos = articuloNegocio.Listar(query);
                 dgvArticulos.DataSource = misArticulos;
                 OcultarColumnas();
-                CargarImagen(misArticulos[0].Imagen[0]);
+                helperVistas.CargarImagenDesdeArticulo(pbImagen, misArticulos[0]);
             }
             catch (Exception ex)
             {
@@ -221,6 +225,13 @@ namespace vistas
         {
             List<Articulo> articuloFiltrado;
 
+            if (criterio != "Todos")
+                articuloFiltrado = misArticulos.FindAll(articulo => articulo.Marca.Descripcion == criterio);
+            else
+                articuloFiltrado = misArticulos;
+
+            return articuloFiltrado;
+        }
         private List<Articulo> FiltrarPorCategoria(string criterio)
         {
             List<Articulo> articuloFiltrado;
