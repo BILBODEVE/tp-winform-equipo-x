@@ -18,7 +18,7 @@ namespace negocio
         public List<Categoria> Cargar()
         {
             List<Categoria> categorias = new List<Categoria>();
-            categorias.Add(new Categoria("Todos"));
+            categorias.Add(new Categoria("Seleccionar"));
             try
             {
                 accesoDatos.SetQuery("SELECT Id, Descripcion FROM CATEGORIAS");

@@ -18,7 +18,7 @@ namespace negocio
         public List<Marca> Cargar()
         {
             List<Marca> marcas = new List<Marca>();
-            marcas.Add(new Marca("Todos"));
+            marcas.Add(new Marca("Seleccionar"));
 
             try
             {
