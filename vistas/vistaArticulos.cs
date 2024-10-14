@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
+using System.Configuration;
 
 namespace vistas
 {
@@ -23,7 +25,6 @@ namespace vistas
             InitializeComponent();
             helperVistas = new HelperVistas();
         }
-
         private void vistaArticulos_Load(object sender, EventArgs e)
         {
             InyectarArticulo();
@@ -85,7 +86,6 @@ namespace vistas
                 MessageBox.Show(ex.ToString());
             }
         }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             Articulo articuloActual = new Articulo();
@@ -93,7 +93,6 @@ namespace vistas
 
             confirmarAccion cuadroDialogo = new confirmarAccion(articuloActual);
             cuadroDialogo.ShowDialog();
-
         }
 
         private void btnEliminaciónLógica_Click(object sender, EventArgs e)
@@ -107,7 +106,6 @@ namespace vistas
                 articulo.EliminarLogico(articuloAuxiliar);
                 InyectarArticulo();
             }
-
         }
 
         private void btnGestionarMarcas_Click(object sender, EventArgs e)
@@ -256,6 +254,28 @@ namespace vistas
             dgvArticulos.DataSource = null;
             dgvArticulos.DataSource = articulosFiltrados;
             OcultarColumnas();
+        }
+
+        private void btnSiguienteImagen_Click(object sender, EventArgs e)
+        {
+            Articulo articuloActual = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            int cantidadImagenes = articuloActual.Imagen.Count();
+            if (cantidadImagenes != 0)
+            {
+                indexImagen = (indexImagen + 1) % cantidadImagenes;
+                helperVistas.CargarImagenDesdeArticulo(pbImagen, articuloActual, indexImagen);
+            }
+        }
+        private void btnRetrocederImagen_Click(object sender, EventArgs e)
+        {
+            Articulo articuloActual = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            int cantidadImagenes = articuloActual.Imagen.Count();
+
+            if (cantidadImagenes != 0)
+            {
+                indexImagen = (indexImagen - 1 + cantidadImagenes) % cantidadImagenes;
+                helperVistas.CargarImagenDesdeArticulo(pbImagen, articuloActual, indexImagen);
+            }   
         }
     }
 }
