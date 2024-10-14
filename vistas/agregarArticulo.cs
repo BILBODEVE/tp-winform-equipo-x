@@ -58,7 +58,7 @@ namespace vistas
                 else
                     nuevoArticulo.Cargar(articulo);
 
-                MessageBox.Show("Operacion exitosa");
+                    MessageBox.Show("Operacion exitosa");
                 LimpiarCampos();
             }
         }
@@ -141,15 +141,27 @@ namespace vistas
                 return false;
             if (!ValidarCampoNulo(txtPrecio) || !ValidarCampoNumerico(txtPrecio))
                 return false;
+            if (!ValidarComboBox(dpdMarca, "Seleccione una marca porfavor"))
+                return false;
+            if (!ValidarComboBox(dpdCategoria, "Seleccione una categoria porfavor"))
+                return false;
 
             return true;
         }
 
-        private void txtUrlImagen_TextChanged(object sender, EventArgs e)
+        private bool ValidarComboBox(System.Windows.Forms.ComboBox comboBox, string mensajeError)
         {
-            //helperVistas.CargarURLImagen(pbImagenAgregar, txtUrlImagen.Text);
+            if (comboBox.SelectedItem.ToString() == "Seleccionar")
+            {
+                errorProviderComboBox.SetError(comboBox, mensajeError);
+                return false;
+            }
+            else
+            {
+                errorProviderComboBox.SetError(comboBox, "");
+            }
+            return true;
         }
-
         private void txtUrlImagen_Leave(object sender, EventArgs e)
         {
             helperVistas.CargarURLImagen(pbImagenAgregar, txtUrlImagen.Text);

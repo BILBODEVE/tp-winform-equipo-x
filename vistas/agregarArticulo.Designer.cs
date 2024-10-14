@@ -51,8 +51,10 @@ namespace vistas
             this.btnCargarImagen = new System.Windows.Forms.Button();
             this.errorProviderCodigo = new System.Windows.Forms.ErrorProvider(this.components);
             this.pbImagenAgregar = new System.Windows.Forms.PictureBox();
+            this.errorProviderComboBox = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCodigo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenAgregar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderComboBox)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCodigo
@@ -145,7 +147,6 @@ namespace vistas
             this.txtUrlImagen.Name = "txtUrlImagen";
             this.txtUrlImagen.Size = new System.Drawing.Size(159, 20);
             this.txtUrlImagen.TabIndex = 5;
-            this.txtUrlImagen.TextChanged += new System.EventHandler(this.txtUrlImagen_TextChanged);
             this.txtUrlImagen.Leave += new System.EventHandler(this.txtUrlImagen_Leave);
             // 
             // txtPrecio
@@ -216,6 +217,10 @@ namespace vistas
             this.pbImagenAgregar.TabIndex = 11;
             this.pbImagenAgregar.TabStop = false;
             // 
+            // errorProviderComboBox
+            // 
+            this.errorProviderComboBox.ContainerControl = this;
+            // 
             // agregarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -246,6 +251,7 @@ namespace vistas
             this.Load += new System.EventHandler(this.agregarArticulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCodigo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenAgregar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderComboBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,5 +278,6 @@ namespace vistas
         private System.Windows.Forms.Button btnCargarImagen;
         private System.Windows.Forms.ErrorProvider errorProviderCodigo;
         private System.Windows.Forms.PictureBox pbImagenAgregar;
+        private System.Windows.Forms.ErrorProvider errorProviderComboBox;
     }
 }
